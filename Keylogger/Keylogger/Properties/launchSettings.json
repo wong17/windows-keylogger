@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Keylogger": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}
