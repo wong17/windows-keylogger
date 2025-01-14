@@ -51,7 +51,7 @@
             // 
             // RichTxtKeyboard
             // 
-            RichTxtKeyboard.BackColor = SystemColors.Control;
+            RichTxtKeyboard.BackColor = SystemColors.ControlLight;
             RichTxtKeyboard.BorderStyle = BorderStyle.None;
             RichTxtKeyboard.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             RichTxtKeyboard.HideSelection = false;
@@ -64,6 +64,7 @@
             // 
             // RichTxtMouseButtons
             // 
+            RichTxtMouseButtons.BackColor = SystemColors.ControlLight;
             RichTxtMouseButtons.BorderStyle = BorderStyle.None;
             RichTxtMouseButtons.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             RichTxtMouseButtons.HideSelection = false;
@@ -99,7 +100,7 @@
             CmbBoxEvents.FormattingEnabled = true;
             CmbBoxEvents.Location = new Point(155, 57);
             CmbBoxEvents.Name = "CmbBoxEvents";
-            CmbBoxEvents.Size = new Size(206, 23);
+            CmbBoxEvents.Size = new Size(135, 23);
             CmbBoxEvents.TabIndex = 5;
             CmbBoxEvents.SelectedIndexChanged += CmbBoxEvents_SelectedIndexChanged;
             // 
@@ -123,6 +124,7 @@
             // 
             // RichTxtMousePosition
             // 
+            RichTxtMousePosition.BackColor = SystemColors.ControlLight;
             RichTxtMousePosition.BorderStyle = BorderStyle.None;
             RichTxtMousePosition.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             RichTxtMousePosition.HideSelection = false;
