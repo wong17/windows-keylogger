@@ -37,6 +37,7 @@
             label4 = new Label();
             label5 = new Label();
             RichTxtMousePosition = new RichTextBox();
+            LblOS = new Label();
             SuspendLayout();
             // 
             // label1
@@ -135,11 +136,21 @@
             RichTxtMousePosition.TabIndex = 8;
             RichTxtMousePosition.Text = "";
             // 
+            // LblOS
+            // 
+            LblOS.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            LblOS.Location = new Point(609, 653);
+            LblOS.Name = "LblOS";
+            LblOS.Size = new Size(562, 22);
+            LblOS.TabIndex = 11;
+            LblOS.TextAlign = ContentAlignment.TopRight;
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1204, 667);
+            ClientSize = new Size(1204, 688);
+            Controls.Add(LblOS);
             Controls.Add(RichTxtMousePosition);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -169,5 +180,7 @@
         private Label label4;
         private Label label5;
         private RichTextBox RichTxtMousePosition;
+        private Label LblKeyboardModel;
+        private Label LblOS;
     }
 }

@@ -1,5 +1,6 @@
 using Keylogger.Hooks;
 using Keylogger.Services;
+using Keylogger.WMI;
 using static Keylogger.Interop.Win32ApiHelper;
 
 namespace Keylogger.Views
@@ -12,6 +13,7 @@ namespace Keylogger.Views
         {
             InitializeComponent();
 
+            LblOS.Text = $"{Environment.MachineName} | {Win32OperatingSystem.GetOSVersion()}";
             CmbBoxEvents.Items.AddRange([.. KeyboardEvents.Keys]);
             CmbBoxEvents.SelectedIndex = 0;
             UpdateSelectedEventPredicate();

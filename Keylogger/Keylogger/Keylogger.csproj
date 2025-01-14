@@ -18,4 +18,8 @@
     <Folder Include="Properties\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Management" Version="9.0.1" />
+  </ItemGroup>
+
 </Project>
