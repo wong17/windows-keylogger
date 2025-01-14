@@ -80,5 +80,13 @@ namespace Keylogger.Interop
                    vkCode == (uint)VirtualKeyCode.VK_SPACE ||
                    vkCode == (uint)VirtualKeyCode.VK_ESCAPE;
         }
+
+        public static Dictionary<string, Predicate<KeyboardMessage>> KeyboardEvents = new()
+        {
+            { "Key down", kbmsg => kbmsg == KeyboardMessage.WM_KEYDOWN },
+            { "Key up", kbmsg => kbmsg == KeyboardMessage.WM_KEYUP },
+            { "System key down", kbmsg => kbmsg == KeyboardMessage.WM_SYSKEYDOWN },
+            { "System key up", kbmsg => kbmsg == KeyboardMessage.WM_SYSKEYUP }
+        };
     }
 }

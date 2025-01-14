@@ -8,7 +8,8 @@ namespace Keylogger.Hooks
     {
         public static Hookproc Hookproc => MouseHookCallback;
 
-        public static Action<string, string>? CallBackMethod;
+        public static Action<string, string>? LogMouseButtonsCallback;
+        public static Action<string, string>? LogMousePositionCallback;
 
         private static IntPtr MouseHookCallback(int code, UIntPtr wParam, IntPtr lParam)
         {
@@ -21,11 +22,15 @@ namespace Keylogger.Hooks
                 {
                     var wheelDelta = (short)((mouseStruct.mouseData >> 16) & 0xffff);
                     var wheelDirection = wheelDelta > 0 ? "[WHEEL FORWARD]" : "[WHEEL BACKWARD]";
-                    CallBackMethod?.Invoke(wheelDirection, position);
+                    LogMouseButtonsCallback?.Invoke(wheelDirection, position);
+                }
+                else if ((MouseMessage)wParam == MouseMessage.WM_MOUSEMOVE)
+                {
+                    LogMousePositionCallback?.Invoke($"[{GetMouseMessageName(wParam)}]", position);
                 }
                 else
                 {
-                    CallBackMethod?.Invoke($"[{GetMouseMessageName(wParam)}]", position);
+                    LogMouseButtonsCallback?.Invoke($"[{GetMouseMessageName(wParam)}]", position);
                 }
             }
 
