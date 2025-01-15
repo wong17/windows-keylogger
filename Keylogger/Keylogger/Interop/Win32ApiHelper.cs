@@ -25,14 +25,14 @@ namespace Keylogger.Interop
         {
             return wParam switch
             {
-                (nuint)MouseMessage.WM_LBUTTONDOWN => "LEFT BUTTON DOWN",
-                (nuint)MouseMessage.WM_LBUTTONUP => "LEFT BUTTON UP",
-                (nuint)MouseMessage.WM_RBUTTONDOWN => "RIGHT BUTTON DOWN",
-                (nuint)MouseMessage.WM_RBUTTONUP => "RIGHT BUTTON UP",
-                (nuint)MouseMessage.WM_MBUTTONDOWN => "MIDDLE BUTTON DOWN",
-                (nuint)MouseMessage.WM_MBUTTONUP => "MIDDLE BUTTON UP",
-                (nuint)MouseMessage.WM_MOUSEMOVE => "MOUSE MOVE",
-                (nuint)MouseMessage.WM_MOUSEWHEEL => "MOUSE WHEEL",
+                (nuint)MouseMessage.WM_LBUTTONDOWN => "Left button down",
+                (nuint)MouseMessage.WM_LBUTTONUP => "Left button up",
+                (nuint)MouseMessage.WM_RBUTTONDOWN => "Right button down",
+                (nuint)MouseMessage.WM_RBUTTONUP => "Right button up",
+                (nuint)MouseMessage.WM_MBUTTONDOWN => "Middle button down",
+                (nuint)MouseMessage.WM_MBUTTONUP => "Middle button up",
+                (nuint)MouseMessage.WM_MOUSEMOVE => "Mouse move",
+                (nuint)MouseMessage.WM_MOUSEWHEEL => "Mouse wheel",
                 _ => Enum.GetName(typeof(MouseMessage), wParam)?.Replace("WM_", "") ?? "Unknown message",
             };
         }
@@ -41,21 +41,21 @@ namespace Keylogger.Interop
         {
             return vkCode switch
             {
-                (uint)VirtualKeyCode.VK_RETURN => "ENTER",
-                (uint)VirtualKeyCode.VK_BACK => "BACKSPACE",
-                (uint)VirtualKeyCode.VK_ESCAPE => "ESC",
-                (uint)VirtualKeyCode.VK_LSHIFT => "LEFT SHIFT",
-                (uint)VirtualKeyCode.VK_RSHIFT => "RIGHT SHIFT",
-                (uint)VirtualKeyCode.VK_LCONTROL => "LEFT CTRL",
-                (uint)VirtualKeyCode.VK_RCONTROL => "RIGHT CTRL",
-                (uint)VirtualKeyCode.VK_LMENU => "LEFT ALT",
-                (uint)VirtualKeyCode.VK_RMENU => "RIGHT ALT",
-                (uint)VirtualKeyCode.VK_PRIOR => "PAGE UP",
-                (uint)VirtualKeyCode.VK_NEXT => "PAGE DOWN",
-                (uint)VirtualKeyCode.VK_LWIN => "LEFT WINDOWS",
-                (uint)VirtualKeyCode.VK_RWIN => "RIGHT WINDOWS",
-                (uint)VirtualKeyCode.VK_SNAPSHOT => "PRINT SCREEN",
-                (uint)VirtualKeyCode.VK_CAPITAL => "CAPS LOCK",
+                (uint)VirtualKeyCode.VK_RETURN => "Enter",
+                (uint)VirtualKeyCode.VK_BACK => "Backspace",
+                (uint)VirtualKeyCode.VK_ESCAPE => "Esc",
+                (uint)VirtualKeyCode.VK_LSHIFT => "Left Shift",
+                (uint)VirtualKeyCode.VK_RSHIFT => "Right Shift",
+                (uint)VirtualKeyCode.VK_LCONTROL => "Left Ctrl",
+                (uint)VirtualKeyCode.VK_RCONTROL => "Right Ctrl",
+                (uint)VirtualKeyCode.VK_LMENU => "Left Alt",
+                (uint)VirtualKeyCode.VK_RMENU => "Right Alt",
+                (uint)VirtualKeyCode.VK_PRIOR => "Page Up",
+                (uint)VirtualKeyCode.VK_NEXT => "Page Down",
+                (uint)VirtualKeyCode.VK_LWIN => "Left Windows",
+                (uint)VirtualKeyCode.VK_RWIN => "Right Windows",
+                (uint)VirtualKeyCode.VK_SNAPSHOT => "Print Screen",
+                (uint)VirtualKeyCode.VK_CAPITAL => "Caps Lock",
                 _ => Enum.GetName(typeof(VirtualKeyCode), vkCode)?.Replace("VK_", "") ?? "Unknown key",
             };
         }
@@ -64,10 +64,10 @@ namespace Keylogger.Interop
         {
             return wParam switch
             {
-                (nuint)KeyboardMessage.WM_KEYDOWN => "KEY DOWN",
-                (nuint)KeyboardMessage.WM_KEYUP => "KEY UP",
-                (nuint)KeyboardMessage.WM_SYSKEYDOWN => "SYS KEY DOWN",
-                (nuint)KeyboardMessage.WM_SYSKEYUP => "SYS KEY UP",
+                (nuint)KeyboardMessage.WM_KEYDOWN => "Key down",
+                (nuint)KeyboardMessage.WM_KEYUP => "Key up",
+                (nuint)KeyboardMessage.WM_SYSKEYDOWN => "Sys key down",
+                (nuint)KeyboardMessage.WM_SYSKEYUP => "Sys key up",
                 _ => Enum.GetName(typeof(KeyboardMessage), wParam)?.Replace("WM_", "") ?? "Unknown message",
             };
         }
