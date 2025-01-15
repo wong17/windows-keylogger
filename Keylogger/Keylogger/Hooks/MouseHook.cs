@@ -16,12 +16,12 @@ namespace Keylogger.Hooks
             if (code >= 0)
             {
                 var mouseStruct = Marshal.PtrToStructure<MSLLHOOKSTRUCT>(lParam);
-                var position = $"(x:{mouseStruct.pt.x}, y:{mouseStruct.pt.y})";
+                var position = $"(X:{mouseStruct.pt.x}, Y:{mouseStruct.pt.y})";
 
                 if ((MouseMessage)wParam == MouseMessage.WM_MOUSEWHEEL)
                 {
                     var wheelDelta = (short)((mouseStruct.mouseData >> 16) & 0xffff);
-                    var wheelDirection = wheelDelta > 0 ? "[WHEEL FORWARD]" : "[WHEEL BACKWARD]";
+                    var wheelDirection = wheelDelta > 0 ? "[Wheel Forward]" : "[Wheel Backward]";
                     LogMouseButtonsCallback?.Invoke(wheelDirection, position);
                 }
                 else if ((MouseMessage)wParam == MouseMessage.WM_MOUSEMOVE)
