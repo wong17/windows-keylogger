@@ -38,6 +38,8 @@
             label5 = new Label();
             RichTxtMousePosition = new RichTextBox();
             LblOS = new Label();
+            label6 = new Label();
+            comboBox1 = new ComboBox();
             SuspendLayout();
             // 
             // label1
@@ -54,26 +56,28 @@
             // 
             RichTxtKeyboard.BackColor = SystemColors.ControlLight;
             RichTxtKeyboard.BorderStyle = BorderStyle.None;
-            RichTxtKeyboard.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            RichTxtKeyboard.Font = new Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             RichTxtKeyboard.HideSelection = false;
             RichTxtKeyboard.Location = new Point(24, 97);
             RichTxtKeyboard.Name = "RichTxtKeyboard";
             RichTxtKeyboard.ReadOnly = true;
             RichTxtKeyboard.Size = new Size(562, 541);
             RichTxtKeyboard.TabIndex = 1;
+            RichTxtKeyboard.TabStop = false;
             RichTxtKeyboard.Text = "";
             // 
             // RichTxtMouseButtons
             // 
             RichTxtMouseButtons.BackColor = SystemColors.ControlLight;
             RichTxtMouseButtons.BorderStyle = BorderStyle.None;
-            RichTxtMouseButtons.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            RichTxtMouseButtons.Font = new Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             RichTxtMouseButtons.HideSelection = false;
             RichTxtMouseButtons.Location = new Point(609, 97);
             RichTxtMouseButtons.Name = "RichTxtMouseButtons";
             RichTxtMouseButtons.ReadOnly = true;
             RichTxtMouseButtons.Size = new Size(562, 241);
             RichTxtMouseButtons.TabIndex = 3;
+            RichTxtMouseButtons.TabStop = false;
             RichTxtMouseButtons.Text = "";
             // 
             // label2
@@ -99,10 +103,10 @@
             // 
             CmbBoxEvents.DropDownStyle = ComboBoxStyle.DropDownList;
             CmbBoxEvents.FormattingEnabled = true;
-            CmbBoxEvents.Location = new Point(155, 57);
+            CmbBoxEvents.Location = new Point(144, 57);
             CmbBoxEvents.Name = "CmbBoxEvents";
             CmbBoxEvents.Size = new Size(135, 23);
-            CmbBoxEvents.TabIndex = 5;
+            CmbBoxEvents.TabIndex = 1;
             CmbBoxEvents.SelectedIndexChanged += CmbBoxEvents_SelectedIndexChanged;
             // 
             // label4
@@ -127,13 +131,14 @@
             // 
             RichTxtMousePosition.BackColor = SystemColors.ControlLight;
             RichTxtMousePosition.BorderStyle = BorderStyle.None;
-            RichTxtMousePosition.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            RichTxtMousePosition.Font = new Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             RichTxtMousePosition.HideSelection = false;
             RichTxtMousePosition.Location = new Point(609, 397);
             RichTxtMousePosition.Name = "RichTxtMousePosition";
             RichTxtMousePosition.ReadOnly = true;
             RichTxtMousePosition.Size = new Size(562, 241);
             RichTxtMousePosition.TabIndex = 8;
+            RichTxtMousePosition.TabStop = false;
             RichTxtMousePosition.Text = "";
             // 
             // LblOS
@@ -145,11 +150,31 @@
             LblOS.TabIndex = 11;
             LblOS.TextAlign = ContentAlignment.TopRight;
             // 
+            // label6
+            // 
+            label6.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(310, 58);
+            label6.Name = "label6";
+            label6.Size = new Size(59, 22);
+            label6.TabIndex = 12;
+            label6.Text = "Mostrar:";
+            // 
+            // comboBox1
+            // 
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(375, 58);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(211, 23);
+            comboBox1.TabIndex = 2;
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1204, 688);
+            Controls.Add(comboBox1);
+            Controls.Add(label6);
             Controls.Add(LblOS);
             Controls.Add(RichTxtMousePosition);
             Controls.Add(label5);
@@ -180,7 +205,8 @@
         private Label label4;
         private Label label5;
         private RichTextBox RichTxtMousePosition;
-        private Label LblKeyboardModel;
         private Label LblOS;
+        private Label label6;
+        private ComboBox comboBox1;
     }
 }

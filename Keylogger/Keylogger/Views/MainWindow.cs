@@ -30,12 +30,20 @@ namespace Keylogger.Views
 
         private void LogMouseButtons(string message, string position)
         {
-            RichTxtMouseButtons.AppendText($"{message}{position}\n");
+            var time = DateTime.Now.ToString("hh:mm:ss tt");
+            var format = "{0,-15}{1,-21}{2,18}";
+            var finalMessage = string.Format(format, time, message, position);
+
+            RichTxtMouseButtons.AppendText(finalMessage + Environment.NewLine);
         }
 
         private void LogMousePosition(string message, string position)
         {
-            RichTxtMousePosition.AppendText($"{message}{position}\n");
+            string time = DateTime.Now.ToString("hh:mm:ss tt");
+            var format = "{0,-15}{1,-13}{2,18}";
+            var finalMessage = string.Format(format, time, message, position);
+
+            RichTxtMousePosition.AppendText(finalMessage + Environment.NewLine);
         }
 
         private void UpdateSelectedEventPredicate()
