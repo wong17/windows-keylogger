@@ -1,10 +1,13 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.Globalization;
+using System.Runtime.InteropServices;
 using static Keylogger.Interop.Win32Api;
 
 namespace Keylogger.Interop
 {
     internal static class Win32ApiHelper
     {
+        private static readonly TextInfo TextInfo = new CultureInfo("en-US", false).TextInfo;
+
         public static string GetLastErrorMessage()
         {
             var errorCode = Marshal.GetLastWin32Error();
@@ -25,15 +28,15 @@ namespace Keylogger.Interop
         {
             return wParam switch
             {
-                (nuint)MouseMessage.WM_LBUTTONDOWN => "Left button down",
-                (nuint)MouseMessage.WM_LBUTTONUP => "Left button up",
-                (nuint)MouseMessage.WM_RBUTTONDOWN => "Right button down",
-                (nuint)MouseMessage.WM_RBUTTONUP => "Right button up",
-                (nuint)MouseMessage.WM_MBUTTONDOWN => "Middle button down",
-                (nuint)MouseMessage.WM_MBUTTONUP => "Middle button up",
-                (nuint)MouseMessage.WM_MOUSEMOVE => "Mouse move",
-                (nuint)MouseMessage.WM_MOUSEWHEEL => "Mouse wheel",
-                _ => Enum.GetName(typeof(MouseMessage), wParam)?.Replace("WM_", "") ?? "Unknown message",
+                (nuint)MouseMessage.WM_LBUTTONDOWN => "Left Button Down",
+                (nuint)MouseMessage.WM_LBUTTONUP => "Left Button Up",
+                (nuint)MouseMessage.WM_RBUTTONDOWN => "Right Button Down",
+                (nuint)MouseMessage.WM_RBUTTONUP => "Right Button Up",
+                (nuint)MouseMessage.WM_MBUTTONDOWN => "Middle Button Down",
+                (nuint)MouseMessage.WM_MBUTTONUP => "Middle Button Up",
+                (nuint)MouseMessage.WM_MOUSEMOVE => "Mouse Move",
+                (nuint)MouseMessage.WM_MOUSEWHEEL => "Mouse Wheel",
+                _ => Enum.GetName(typeof(MouseMessage), wParam)?.Replace("WM_", "") ?? "Unknown Message"
             };
         }
 
@@ -56,7 +59,8 @@ namespace Keylogger.Interop
                 (uint)VirtualKeyCode.VK_RWIN => "Right Windows",
                 (uint)VirtualKeyCode.VK_SNAPSHOT => "Print Screen",
                 (uint)VirtualKeyCode.VK_CAPITAL => "Caps Lock",
-                _ => Enum.GetName(typeof(VirtualKeyCode), vkCode)?.Replace("VK_", "") ?? "Unknown key",
+                (uint)VirtualKeyCode.VK_SPACE => "Space",
+                _ => TextInfo.ToTitleCase(Enum.GetName(typeof(VirtualKeyCode), vkCode)?.Replace("VK_", "").ToLower() ?? "Unknown Key")
             };
         }
 
@@ -64,11 +68,11 @@ namespace Keylogger.Interop
         {
             return wParam switch
             {
-                (nuint)KeyboardMessage.WM_KEYDOWN => "Key down",
-                (nuint)KeyboardMessage.WM_KEYUP => "Key up",
-                (nuint)KeyboardMessage.WM_SYSKEYDOWN => "Sys key down",
-                (nuint)KeyboardMessage.WM_SYSKEYUP => "Sys key up",
-                _ => Enum.GetName(typeof(KeyboardMessage), wParam)?.Replace("WM_", "") ?? "Unknown message",
+                (nuint)KeyboardMessage.WM_KEYDOWN => "Key Down",
+                (nuint)KeyboardMessage.WM_KEYUP => "Key Up",
+                (nuint)KeyboardMessage.WM_SYSKEYDOWN => "Sys Key Down",
+                (nuint)KeyboardMessage.WM_SYSKEYUP => "Sys Key Up",
+                _ => Enum.GetName(typeof(KeyboardMessage), wParam)?.Replace("WM_", "") ?? "Unknown message"
             };
         }
 
@@ -83,10 +87,10 @@ namespace Keylogger.Interop
 
         public static Dictionary<string, Predicate<KeyboardMessage>> KeyboardEvents = new()
         {
-            { "Key down", kbmsg => kbmsg == KeyboardMessage.WM_KEYDOWN },
-            { "Key up", kbmsg => kbmsg == KeyboardMessage.WM_KEYUP },
-            { "System key down", kbmsg => kbmsg == KeyboardMessage.WM_SYSKEYDOWN },
-            { "System key up", kbmsg => kbmsg == KeyboardMessage.WM_SYSKEYUP }
+            { "Key Down", kbmsg => kbmsg == KeyboardMessage.WM_KEYDOWN },
+            { "Key Up", kbmsg => kbmsg == KeyboardMessage.WM_KEYUP },
+            { "System Key Down", kbmsg => kbmsg == KeyboardMessage.WM_SYSKEYDOWN },
+            { "System Key Up", kbmsg => kbmsg == KeyboardMessage.WM_SYSKEYUP }
         };
     }
 }
