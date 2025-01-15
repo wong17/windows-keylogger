@@ -1,7 +1,7 @@
 ﻿using Keylogger.Hooks;
 using System.Diagnostics;
+using static Keylogger.Helpers.Win32ErrorHelper;
 using static Keylogger.Interop.Win32Api;
-using static Keylogger.Interop.Win32ApiHelper;
 
 namespace Keylogger.Services
 {

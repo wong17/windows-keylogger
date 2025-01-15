@@ -39,7 +39,7 @@
             RichTxtMousePosition = new RichTextBox();
             LblOS = new Label();
             label6 = new Label();
-            comboBox1 = new ComboBox();
+            CmbBoxKeyFilter = new ComboBox();
             SuspendLayout();
             // 
             // label1
@@ -105,7 +105,7 @@
             CmbBoxEvents.FormattingEnabled = true;
             CmbBoxEvents.Location = new Point(144, 57);
             CmbBoxEvents.Name = "CmbBoxEvents";
-            CmbBoxEvents.Size = new Size(135, 23);
+            CmbBoxEvents.Size = new Size(160, 23);
             CmbBoxEvents.TabIndex = 1;
             CmbBoxEvents.SelectedIndexChanged += CmbBoxEvents_SelectedIndexChanged;
             // 
@@ -153,27 +153,28 @@
             // label6
             // 
             label6.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(310, 58);
+            label6.Location = new Point(362, 58);
             label6.Name = "label6";
-            label6.Size = new Size(59, 22);
+            label6.Size = new Size(58, 22);
             label6.TabIndex = 12;
             label6.Text = "Mostrar:";
             // 
-            // comboBox1
+            // CmbBoxKeyFilter
             // 
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(375, 58);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(211, 23);
-            comboBox1.TabIndex = 2;
+            CmbBoxKeyFilter.DropDownStyle = ComboBoxStyle.DropDownList;
+            CmbBoxKeyFilter.FormattingEnabled = true;
+            CmbBoxKeyFilter.Location = new Point(426, 58);
+            CmbBoxKeyFilter.Name = "CmbBoxKeyFilter";
+            CmbBoxKeyFilter.Size = new Size(160, 23);
+            CmbBoxKeyFilter.TabIndex = 2;
+            CmbBoxKeyFilter.SelectedIndexChanged += CmbBoxKeyFilter_SelectedIndexChanged;
             // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1204, 688);
-            Controls.Add(comboBox1);
+            Controls.Add(CmbBoxKeyFilter);
             Controls.Add(label6);
             Controls.Add(LblOS);
             Controls.Add(RichTxtMousePosition);
@@ -207,6 +208,6 @@
         private RichTextBox RichTxtMousePosition;
         private Label LblOS;
         private Label label6;
-        private ComboBox comboBox1;
+        private ComboBox CmbBoxKeyFilter;
     }
 }

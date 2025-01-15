@@ -1,7 +1,9 @@
 using Keylogger.Hooks;
 using Keylogger.Services;
 using Keylogger.WMI;
-using static Keylogger.Interop.Win32ApiHelper;
+using static Keylogger.Helpers.KeyFilterHelper;
+using static Keylogger.Helpers.InputMessageHelper;
+using Keylogger.Helpers.Enums;
 
 namespace Keylogger.Views
 {
@@ -9,13 +11,19 @@ namespace Keylogger.Views
     {
         private readonly HookService _hookService = new();
 
+        private KeyFilter _selectedKeyFilter = KeyFilter.PrintableCharacters;
+
         public MainWindow()
         {
             InitializeComponent();
 
             LblOS.Text = $"{Environment.MachineName} | {Win32OperatingSystem.GetOSVersion()}";
+
+            CmbBoxKeyFilter.Items.AddRange([.. KeyFilters.Keys]);
+            CmbBoxKeyFilter.SelectedIndex = 1; // Default to "Printable characters"
+
             CmbBoxEvents.Items.AddRange([.. KeyboardEvents.Keys]);
-            CmbBoxEvents.SelectedIndex = 0;
+            CmbBoxEvents.SelectedIndex = 0; // Default to "Key Down"
             UpdateSelectedEventPredicate();
 
             KeyboardHook.CallBackMethod = LogKeyboardHook;
@@ -23,9 +31,12 @@ namespace Keylogger.Views
             MouseHook.LogMousePositionCallback = LogMousePosition;
         }
 
-        private void LogKeyboardHook(string message, string key)
+        private void LogKeyboardHook(string message, string key, KeyType keyType)
         {
-            RichTxtKeyboard.AppendText($"{key}");
+            if (ShouldDisplayKey(key, keyType, _selectedKeyFilter))
+            {
+                RichTxtKeyboard.AppendText($"{key}");
+            }
         }
 
         private void LogMouseButtons(string message, string position)
@@ -55,10 +66,21 @@ namespace Keylogger.Views
             }
         }
 
+        private void UpdateSelectedKeyFilter()
+        {
+            var selectedKey = CmbBoxKeyFilter.SelectedItem?.ToString();
+            if (selectedKey is not null && KeyFilters.TryGetValue(selectedKey, out var filter))
+            {
+                _selectedKeyFilter = filter;
+            }
+        }
+
         private void MainWindow_Load(object sender, EventArgs e) => _hookService.InstallHooks();
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e) => _hookService.UninstallHooks();
 
         private void CmbBoxEvents_SelectedIndexChanged(object sender, EventArgs e) => UpdateSelectedEventPredicate();
+
+        private void CmbBoxKeyFilter_SelectedIndexChanged(object sender, EventArgs e) => UpdateSelectedKeyFilter();
     }
 }

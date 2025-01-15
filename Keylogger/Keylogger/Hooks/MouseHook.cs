@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
+using static Keylogger.Helpers.InputMessageHelper;
 using static Keylogger.Interop.Win32Api;
-using static Keylogger.Interop.Win32ApiHelper;
 
 namespace Keylogger.Hooks
 {
