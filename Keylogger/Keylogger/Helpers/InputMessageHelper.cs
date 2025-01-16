@@ -28,92 +28,112 @@ namespace Keylogger.Helpers
                 msg == MouseMessage.WM_LBUTTONDOWN || msg == MouseMessage.WM_LBUTTONUP ||
                 msg == MouseMessage.WM_RBUTTONDOWN || msg == MouseMessage.WM_RBUTTONUP ||
                 msg == MouseMessage.WM_MBUTTONDOWN || msg == MouseMessage.WM_MBUTTONUP ||
-                msg == MouseMessage.WM_MOUSEWHEEL
+                msg == MouseMessage.WM_MOUSEWHEEL || msg == MouseMessage.WM_MOUSEMOVE
             },
             {
                 (MouseButtonFilter.All, "Mouse Down"), msg =>
                 msg == MouseMessage.WM_LBUTTONDOWN || msg == MouseMessage.WM_RBUTTONDOWN ||
-                msg == MouseMessage.WM_MBUTTONDOWN || msg == MouseMessage.WM_MOUSEWHEEL
+                msg == MouseMessage.WM_MBUTTONDOWN || msg == MouseMessage.WM_MOUSEWHEEL ||
+                msg == MouseMessage.WM_MOUSEMOVE
             },
             {
                 (MouseButtonFilter.All, "Mouse Up"), msg =>
                 msg == MouseMessage.WM_LBUTTONUP || msg == MouseMessage.WM_RBUTTONUP ||
-                msg == MouseMessage.WM_MBUTTONUP || msg == MouseMessage.WM_MOUSEWHEEL
+                msg == MouseMessage.WM_MBUTTONUP || msg == MouseMessage.WM_MOUSEWHEEL ||
+                msg == MouseMessage.WM_MOUSEMOVE
             },
             // Left button
             {
                 (MouseButtonFilter.LeftButton, "Mouse Up & Down"), msg =>
-                msg == MouseMessage.WM_LBUTTONDOWN || msg == MouseMessage.WM_LBUTTONUP
+                msg == MouseMessage.WM_LBUTTONDOWN || msg == MouseMessage.WM_LBUTTONUP ||
+                msg == MouseMessage.WM_MOUSEMOVE
             },
             {
-                (MouseButtonFilter.LeftButton, "Mouse Down"), msg => msg == MouseMessage.WM_LBUTTONDOWN
+                (MouseButtonFilter.LeftButton, "Mouse Down"), msg =>
+                msg == MouseMessage.WM_LBUTTONDOWN || msg == MouseMessage.WM_MOUSEMOVE
             },
             {
-                (MouseButtonFilter.LeftButton, "Mouse Up"), msg => msg == MouseMessage.WM_LBUTTONUP
+                (MouseButtonFilter.LeftButton, "Mouse Up"), msg =>
+                msg == MouseMessage.WM_LBUTTONUP || msg == MouseMessage.WM_MOUSEMOVE
             },
             // Right button
             {
                 (MouseButtonFilter.RightButton, "Mouse Up & Down"), msg =>
-                msg == MouseMessage.WM_RBUTTONDOWN || msg == MouseMessage.WM_RBUTTONUP
+                msg == MouseMessage.WM_RBUTTONDOWN || msg == MouseMessage.WM_RBUTTONUP ||
+                msg == MouseMessage.WM_MOUSEMOVE
             },
             {
-                (MouseButtonFilter.RightButton, "Mouse Down"), msg => msg == MouseMessage.WM_RBUTTONDOWN
+                (MouseButtonFilter.RightButton, "Mouse Down"), msg =>
+                msg == MouseMessage.WM_RBUTTONDOWN || msg == MouseMessage.WM_MOUSEMOVE
             },
             {
-                (MouseButtonFilter.RightButton, "Mouse Up"), msg => msg == MouseMessage.WM_RBUTTONUP
+                (MouseButtonFilter.RightButton, "Mouse Up"), msg =>
+                msg == MouseMessage.WM_RBUTTONUP || msg == MouseMessage.WM_MOUSEMOVE
             },
             // Middle button
             {
                 (MouseButtonFilter.MiddleButton, "Mouse Up & Down"), msg =>
-                msg == MouseMessage.WM_MBUTTONDOWN || msg == MouseMessage.WM_MBUTTONUP
+                msg == MouseMessage.WM_MBUTTONDOWN || msg == MouseMessage.WM_MBUTTONUP ||
+                msg == MouseMessage.WM_MOUSEMOVE
             },
             {
-                (MouseButtonFilter.MiddleButton, "Mouse Down"), msg => msg == MouseMessage.WM_MBUTTONDOWN
+                (MouseButtonFilter.MiddleButton, "Mouse Down"), msg =>
+                msg == MouseMessage.WM_MBUTTONDOWN || msg == MouseMessage.WM_MOUSEMOVE
             },
             {
-                (MouseButtonFilter.MiddleButton, "Mouse Up"), msg => msg == MouseMessage.WM_MBUTTONUP
+                (MouseButtonFilter.MiddleButton, "Mouse Up"), msg =>
+                msg == MouseMessage.WM_MBUTTONUP || msg == MouseMessage.WM_MOUSEMOVE
             },
             // Left and Right buttons
             {
                 (MouseButtonFilter.LeftAndRightButton, "Mouse Up & Down"), msg =>
                 msg == MouseMessage.WM_LBUTTONDOWN || msg == MouseMessage.WM_LBUTTONUP ||
-                msg == MouseMessage.WM_RBUTTONDOWN || msg == MouseMessage.WM_RBUTTONUP
+                msg == MouseMessage.WM_RBUTTONDOWN || msg == MouseMessage.WM_RBUTTONUP ||
+                msg == MouseMessage.WM_MOUSEMOVE
             },
             {
                 (MouseButtonFilter.LeftAndRightButton, "Mouse Down"), msg =>
-                msg == MouseMessage.WM_LBUTTONDOWN || msg == MouseMessage.WM_RBUTTONDOWN
+                msg == MouseMessage.WM_LBUTTONDOWN || msg == MouseMessage.WM_RBUTTONDOWN ||
+                msg == MouseMessage.WM_MOUSEMOVE
             },
             {
                 (MouseButtonFilter.LeftAndRightButton, "Mouse Up"), msg =>
-                msg == MouseMessage.WM_LBUTTONUP || msg == MouseMessage.WM_RBUTTONUP
+                msg == MouseMessage.WM_LBUTTONUP || msg == MouseMessage.WM_RBUTTONUP ||
+                msg == MouseMessage.WM_MOUSEMOVE
             },
             // Left and Middle buttons
             {
                 (MouseButtonFilter.LeftAndMiddleButton, "Mouse Up & Down"), msg =>
                 msg == MouseMessage.WM_LBUTTONDOWN || msg == MouseMessage.WM_LBUTTONUP ||
-                msg == MouseMessage.WM_MBUTTONDOWN || msg == MouseMessage.WM_MBUTTONUP
+                msg == MouseMessage.WM_MBUTTONDOWN || msg == MouseMessage.WM_MBUTTONUP ||
+                msg == MouseMessage.WM_MOUSEMOVE
             },
             {
                 (MouseButtonFilter.LeftAndMiddleButton, "Mouse Down"), msg =>
-                msg == MouseMessage.WM_LBUTTONDOWN || msg == MouseMessage.WM_MBUTTONDOWN
+                msg == MouseMessage.WM_LBUTTONDOWN || msg == MouseMessage.WM_MBUTTONDOWN ||
+                msg == MouseMessage.WM_MOUSEMOVE
             },
             {
                 (MouseButtonFilter.LeftAndMiddleButton, "Mouse Up"), msg =>
-                msg == MouseMessage.WM_LBUTTONUP || msg == MouseMessage.WM_MBUTTONUP
+                msg == MouseMessage.WM_LBUTTONUP || msg == MouseMessage.WM_MBUTTONUP ||
+                msg == MouseMessage.WM_MOUSEMOVE
             },
             // Right and Middle buttons
             {
                 (MouseButtonFilter.RightAndMiddleButton, "Mouse Up & Down"), msg =>
                 msg == MouseMessage.WM_RBUTTONDOWN || msg == MouseMessage.WM_RBUTTONUP ||
-                msg == MouseMessage.WM_MBUTTONDOWN || msg == MouseMessage.WM_MBUTTONUP
+                msg == MouseMessage.WM_MBUTTONDOWN || msg == MouseMessage.WM_MBUTTONUP ||
+                msg == MouseMessage.WM_MOUSEMOVE
             },
             {
                 (MouseButtonFilter.RightAndMiddleButton, "Mouse Down"), msg =>
-                msg == MouseMessage.WM_RBUTTONDOWN || msg == MouseMessage.WM_MBUTTONDOWN
+                msg == MouseMessage.WM_RBUTTONDOWN || msg == MouseMessage.WM_MBUTTONDOWN ||
+                msg == MouseMessage.WM_MOUSEMOVE
             },
             {
                 (MouseButtonFilter.RightAndMiddleButton, "Mouse Up"), msg =>
-                msg == MouseMessage.WM_RBUTTONUP || msg == MouseMessage.WM_MBUTTONUP
+                msg == MouseMessage.WM_RBUTTONUP || msg == MouseMessage.WM_MBUTTONUP ||
+                msg == MouseMessage.WM_MOUSEMOVE
             }
         };
 
