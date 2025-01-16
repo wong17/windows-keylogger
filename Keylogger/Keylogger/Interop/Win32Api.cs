@@ -221,6 +221,12 @@ namespace Keylogger.Interop
         [LibraryImport("user32.dll", EntryPoint = "GetKeyboardLayout", SetLastError = true)]
         public static partial IntPtr GetKeyboardLayout(uint idThread);
 
+        [LibraryImport("user32.dll", EntryPoint = "WindowFromPoint", SetLastError = true)]
+        public static partial IntPtr WindowFromPoint(POINT Point);
+
+        [LibraryImport("user32.dll", EntryPoint = "GetWindowThreadProcessId", SetLastError = true)]
+        public static partial uint GetWindowThreadProcessId(IntPtr hWnd, IntPtr lpdwProcessId);
+
         public delegate IntPtr Hookproc(int code, UIntPtr wParam, IntPtr lParam);
     }
 }

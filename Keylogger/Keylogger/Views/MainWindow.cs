@@ -48,23 +48,23 @@ namespace Keylogger.Views
             }
         }
 
-        private void LogMouseButtons(string mouseButton, string position)
+        private void LogMouseButtons(string mouseButton, string position, string processName)
         {
             if (ShouldDisplayMouseButton(mouseButton, _selectedMouseButtonFilter))
             {
                 var time = DateTime.Now.ToString("hh:mm:ss tt");
-                var format = "{0,-15}{1,-21}{2,18}";
-                var finalMessage = string.Format(format, time, mouseButton, position);
+                var format = "{0,-15}{1,-21}{2,18}{3,30}";
+                var finalMessage = string.Format(format, time, mouseButton, position, processName);
 
                 RichTxtMouseButtons.AppendText(finalMessage + Environment.NewLine);
             }
         }
 
-        private void LogMousePosition(string message, string position)
+        private void LogMousePosition(string message, string position, string processName)
         {
             string time = DateTime.Now.ToString("hh:mm:ss tt");
-            var format = "{0,-15}{1,-13}{2,18}";
-            var finalMessage = string.Format(format, time, message, position);
+            var format = "{0,-15}{1,-13}{2,18}{3,30}";
+            var finalMessage = string.Format(format, time, message, position, processName);
 
             RichTxtMousePosition.AppendText(finalMessage + Environment.NewLine);
         }
