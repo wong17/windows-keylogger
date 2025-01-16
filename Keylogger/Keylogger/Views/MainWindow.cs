@@ -17,7 +17,7 @@ namespace Keylogger.Views
         {
             InitializeComponent();
 
-            LblOS.Text = $"{Environment.MachineName} | {Win32OperatingSystem.GetOSVersion()}";
+            ToolStripStatusLbl.Text = $"{Environment.MachineName} | {Win32OperatingSystem.GetOSVersion()}";
 
             CmbBoxEvents.Items.AddRange([.. KeyboardEvents.Keys.Take(2)]);
             CmbBoxEvents.SelectedIndex = 0; // Default to "Key Down"

@@ -40,6 +40,9 @@
             LblOS = new Label();
             label6 = new Label();
             CmbBoxKeyFilter = new ComboBox();
+            statusStrip1 = new StatusStrip();
+            ToolStripStatusLbl = new ToolStripStatusLabel();
+            statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -144,7 +147,7 @@
             // LblOS
             // 
             LblOS.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            LblOS.Location = new Point(609, 653);
+            LblOS.Location = new Point(24, 657);
             LblOS.Name = "LblOS";
             LblOS.Size = new Size(562, 22);
             LblOS.TabIndex = 11;
@@ -169,11 +172,26 @@
             CmbBoxKeyFilter.TabIndex = 2;
             CmbBoxKeyFilter.SelectedIndexChanged += CmbBoxKeyFilter_SelectedIndexChanged;
             // 
+            // statusStrip1
+            // 
+            statusStrip1.Items.AddRange(new ToolStripItem[] { ToolStripStatusLbl });
+            statusStrip1.Location = new Point(0, 733);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(1204, 22);
+            statusStrip1.TabIndex = 13;
+            statusStrip1.Text = "statusStrip1";
+            // 
+            // ToolStripStatusLbl
+            // 
+            ToolStripStatusLbl.Name = "ToolStripStatusLbl";
+            ToolStripStatusLbl.Size = new Size(0, 17);
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1204, 688);
+            ClientSize = new Size(1204, 755);
+            Controls.Add(statusStrip1);
             Controls.Add(CmbBoxKeyFilter);
             Controls.Add(label6);
             Controls.Add(LblOS);
@@ -191,6 +209,8 @@
             Text = "Windows Keylogger - D. Wong";
             FormClosing += MainWindow_FormClosing;
             Load += MainWindow_Load;
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -209,5 +229,7 @@
         private Label LblOS;
         private Label label6;
         private ComboBox CmbBoxKeyFilter;
+        private StatusStrip statusStrip1;
+        private ToolStripStatusLabel ToolStripStatusLbl;
     }
 }
