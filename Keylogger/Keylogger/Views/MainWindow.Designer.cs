@@ -42,6 +42,8 @@
             CmbBoxKeyFilter = new ComboBox();
             statusStrip1 = new StatusStrip();
             ToolStripStatusLbl = new ToolStripStatusLabel();
+            label7 = new Label();
+            CmbBoxCaptureMouseButtons = new ComboBox();
             statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -98,7 +100,7 @@
             label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.Location = new Point(24, 58);
             label3.Name = "label3";
-            label3.Size = new Size(114, 22);
+            label3.Size = new Size(106, 22);
             label3.TabIndex = 4;
             label3.Text = "Event to capture:";
             // 
@@ -106,7 +108,7 @@
             // 
             CmbBoxEvents.DropDownStyle = ComboBoxStyle.DropDownList;
             CmbBoxEvents.FormattingEnabled = true;
-            CmbBoxEvents.Location = new Point(144, 57);
+            CmbBoxEvents.Location = new Point(136, 57);
             CmbBoxEvents.Name = "CmbBoxEvents";
             CmbBoxEvents.Size = new Size(175, 23);
             CmbBoxEvents.TabIndex = 1;
@@ -175,7 +177,7 @@
             // statusStrip1
             // 
             statusStrip1.Items.AddRange(new ToolStripItem[] { ToolStripStatusLbl });
-            statusStrip1.Location = new Point(0, 733);
+            statusStrip1.Location = new Point(0, 648);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Size = new Size(1204, 22);
             statusStrip1.TabIndex = 13;
@@ -186,11 +188,32 @@
             ToolStripStatusLbl.Name = "ToolStripStatusLbl";
             ToolStripStatusLbl.Size = new Size(0, 17);
             // 
+            // label7
+            // 
+            label7.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.Location = new Point(952, 59);
+            label7.Name = "label7";
+            label7.Size = new Size(57, 22);
+            label7.TabIndex = 16;
+            label7.Text = "Buttons:";
+            // 
+            // CmbBoxCaptureMouseButtons
+            // 
+            CmbBoxCaptureMouseButtons.DropDownStyle = ComboBoxStyle.DropDownList;
+            CmbBoxCaptureMouseButtons.FormattingEnabled = true;
+            CmbBoxCaptureMouseButtons.Location = new Point(1015, 58);
+            CmbBoxCaptureMouseButtons.Name = "CmbBoxCaptureMouseButtons";
+            CmbBoxCaptureMouseButtons.Size = new Size(156, 23);
+            CmbBoxCaptureMouseButtons.TabIndex = 17;
+            CmbBoxCaptureMouseButtons.SelectedIndexChanged += CmbBoxCaptureMouseButtons_SelectedIndexChanged;
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1204, 755);
+            ClientSize = new Size(1204, 670);
+            Controls.Add(CmbBoxCaptureMouseButtons);
+            Controls.Add(label7);
             Controls.Add(statusStrip1);
             Controls.Add(CmbBoxKeyFilter);
             Controls.Add(label6);
@@ -231,5 +254,7 @@
         private ComboBox CmbBoxKeyFilter;
         private StatusStrip statusStrip1;
         private ToolStripStatusLabel ToolStripStatusLbl;
+        private Label label7;
+        private ComboBox CmbBoxCaptureMouseButtons;
     }
 }

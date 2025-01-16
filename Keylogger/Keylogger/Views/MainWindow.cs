@@ -4,6 +4,7 @@ using Keylogger.Services;
 using Keylogger.WMI;
 using static Keylogger.Helpers.InputMessageHelper;
 using static Keylogger.Helpers.KeyFilterHelper;
+using static Keylogger.Helpers.MouseButtonFilterHelper;
 
 namespace Keylogger.Views
 {
@@ -12,6 +13,7 @@ namespace Keylogger.Views
         private readonly HookService _hookService = new();
 
         private KeyFilter _selectedKeyFilter = KeyFilter.PrintableCharacters;
+        private MouseButtonFilter _selectedMouseButtonFilter = MouseButtonFilter.All;
 
         public MainWindow()
         {
@@ -26,6 +28,9 @@ namespace Keylogger.Views
             CmbBoxKeyFilter.Items.AddRange([.. KeyFilters.Keys]);
             CmbBoxKeyFilter.SelectedIndex = 1; // Default to "Printable characters"
 
+            CmbBoxCaptureMouseButtons.Items.AddRange([.. MouseButtonFilters.Keys]);
+            CmbBoxCaptureMouseButtons.SelectedIndex = 0; // Default to "All"
+
             KeyboardHook.CallBackMethod = LogKeyboardHook;
             MouseHook.LogMouseButtonsCallback = LogMouseButtons;
             MouseHook.LogMousePositionCallback = LogMousePosition;
@@ -39,13 +44,16 @@ namespace Keylogger.Views
             }
         }
 
-        private void LogMouseButtons(string message, string position)
+        private void LogMouseButtons(string mouseButton, string position)
         {
-            var time = DateTime.Now.ToString("hh:mm:ss tt");
-            var format = "{0,-15}{1,-21}{2,18}";
-            var finalMessage = string.Format(format, time, message, position);
+            if (ShouldDisplayMouseButton(mouseButton, _selectedMouseButtonFilter))
+            {
+                var time = DateTime.Now.ToString("hh:mm:ss tt");
+                var format = "{0,-15}{1,-21}{2,18}";
+                var finalMessage = string.Format(format, time, mouseButton, position);
 
-            RichTxtMouseButtons.AppendText(finalMessage + Environment.NewLine);
+                RichTxtMouseButtons.AppendText(finalMessage + Environment.NewLine);
+            }
         }
 
         private void LogMousePosition(string message, string position)
@@ -81,7 +89,7 @@ namespace Keylogger.Views
                     UpdateSelectedEventPredicate();
                     return;
                 }
-                
+
                 if (filter == KeyFilter.PrintableCharacters || filter == KeyFilter.NonPrintableKeys)
                 {
                     CmbBoxEvents.Items.AddRange([.. KeyboardEvents.Keys.Take(2)]);
@@ -96,6 +104,15 @@ namespace Keylogger.Views
             }
         }
 
+        private void UpdateSelectedMouseButtonFilter()
+        {
+            var selectedKey = CmbBoxCaptureMouseButtons.SelectedItem?.ToString();
+            if (selectedKey is not null && MouseButtonFilters.TryGetValue(selectedKey, out var filter))
+            {
+                _selectedMouseButtonFilter = filter;
+            }
+        }
+
         private void MainWindow_Load(object sender, EventArgs e) => _hookService.InstallHooks();
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e) => _hookService.UninstallHooks();
@@ -103,5 +120,7 @@ namespace Keylogger.Views
         private void CmbBoxEvents_SelectedIndexChanged(object sender, EventArgs e) => UpdateSelectedEventPredicate();
 
         private void CmbBoxKeyFilter_SelectedIndexChanged(object sender, EventArgs e) => UpdateSelectedKeyFilter();
+
+        private void CmbBoxCaptureMouseButtons_SelectedIndexChanged(object sender, EventArgs e) => UpdateSelectedMouseButtonFilter();
     }
 }
