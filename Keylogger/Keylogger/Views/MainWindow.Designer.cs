@@ -97,7 +97,7 @@
             label3.Name = "label3";
             label3.Size = new Size(114, 22);
             label3.TabIndex = 4;
-            label3.Text = "Evento a capturar:";
+            label3.Text = "Event to capture:";
             // 
             // CmbBoxEvents
             // 
@@ -105,7 +105,7 @@
             CmbBoxEvents.FormattingEnabled = true;
             CmbBoxEvents.Location = new Point(144, 57);
             CmbBoxEvents.Name = "CmbBoxEvents";
-            CmbBoxEvents.Size = new Size(160, 23);
+            CmbBoxEvents.Size = new Size(175, 23);
             CmbBoxEvents.TabIndex = 1;
             CmbBoxEvents.SelectedIndexChanged += CmbBoxEvents_SelectedIndexChanged;
             // 
@@ -116,7 +116,7 @@
             label4.Name = "label4";
             label4.Size = new Size(162, 22);
             label4.TabIndex = 6;
-            label4.Text = "Botones presionados:";
+            label4.Text = "Pressed buttons:";
             // 
             // label5
             // 
@@ -125,7 +125,7 @@
             label5.Name = "label5";
             label5.Size = new Size(162, 22);
             label5.TabIndex = 7;
-            label5.Text = "Posición del cursor:";
+            label5.Text = "Cursor position:";
             // 
             // RichTxtMousePosition
             // 
@@ -155,17 +155,17 @@
             label6.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.Location = new Point(362, 58);
             label6.Name = "label6";
-            label6.Size = new Size(58, 22);
+            label6.Size = new Size(43, 22);
             label6.TabIndex = 12;
-            label6.Text = "Mostrar:";
+            label6.Text = "Show:";
             // 
             // CmbBoxKeyFilter
             // 
             CmbBoxKeyFilter.DropDownStyle = ComboBoxStyle.DropDownList;
             CmbBoxKeyFilter.FormattingEnabled = true;
-            CmbBoxKeyFilter.Location = new Point(426, 58);
+            CmbBoxKeyFilter.Location = new Point(411, 57);
             CmbBoxKeyFilter.Name = "CmbBoxKeyFilter";
-            CmbBoxKeyFilter.Size = new Size(160, 23);
+            CmbBoxKeyFilter.Size = new Size(175, 23);
             CmbBoxKeyFilter.TabIndex = 2;
             CmbBoxKeyFilter.SelectedIndexChanged += CmbBoxKeyFilter_SelectedIndexChanged;
             // 

@@ -8,8 +8,10 @@ namespace Keylogger.Helpers
         {
             { "Key Down", kbmsg => kbmsg == KeyboardMessage.WM_KEYDOWN },
             { "Key Up", kbmsg => kbmsg == KeyboardMessage.WM_KEYUP },
-            { "System Key Down", kbmsg => kbmsg == KeyboardMessage.WM_SYSKEYDOWN },
-            { "System Key Up", kbmsg => kbmsg == KeyboardMessage.WM_SYSKEYUP }
+            { "Sys Key Down", kbmsg => kbmsg == KeyboardMessage.WM_SYSKEYDOWN },
+            { "Sys Key Up", kbmsg => kbmsg == KeyboardMessage.WM_SYSKEYUP },
+            { "Key Down & Sys Key Down", kbmsg => kbmsg == KeyboardMessage.WM_KEYDOWN || kbmsg == KeyboardMessage.WM_SYSKEYDOWN },
+            { "Key Up & Sys Key Up", kbmsg => kbmsg == KeyboardMessage.WM_KEYUP || kbmsg == KeyboardMessage.WM_SYSKEYUP }
         };
 
         public static string GetMouseMessageName(nuint wParam)

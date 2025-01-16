@@ -12,8 +12,29 @@ namespace Keylogger.Helpers
         {
             { "All Keys", KeyFilter.AllKeys },
             { "Printable characters", KeyFilter.PrintableCharacters },
-            { "Non-printable keys", KeyFilter.NonPrintableKeys }
+            { "Non-printable keys", KeyFilter.NonPrintableKeys },
+            { "Function keys", KeyFilter.FunctionKeys },
+            { "Modifier keys", KeyFilter.ModifierKeys }
         };
+
+        private static readonly HashSet<string> SpecialPrintableKeys =
+        [
+            "[Space]", "[Enter]", "[Backspace]"
+        ];
+
+        private static readonly HashSet<string> FunctionKeys =
+        [
+            "[F1]", "[F2]", "[F3]", "[F4]", "[F5]", "[F6]",
+            "[F7]", "[F8]", "[F9]", "[F10]", "[F11]", "[F12]"
+        ];
+
+        private static readonly HashSet<string> Modifiers =
+        [
+            "[Shift]", "[Left Shift]", "[Right Shift]",
+            "[Ctrl]", "[Left Ctrl]", "[Right Ctrl]",
+            "[Alt]", "[Left Alt]", "[Right Alt]",
+            "[Windows]", "[Left Windows]", "[Right Windows]"
+        ];
 
         public static string GetVirtualKeyName(uint vkCode)
         {
@@ -53,12 +74,21 @@ namespace Keylogger.Helpers
             return keyFilter switch
             {
                 KeyFilter.AllKeys => true,
-                KeyFilter.PrintableCharacters => keyType == KeyType.PrintableKey || IsSpecialPrintableKey(key),
+                KeyFilter.PrintableCharacters => IsPrintableKey(key, keyType),
                 KeyFilter.NonPrintableKeys => keyType == KeyType.NonPrintableKey,
+                KeyFilter.FunctionKeys => IsFunctionKey(key, keyType),
+                KeyFilter.ModifierKeys => IsModifier(key, keyType),
                 _ => false
             };
         }
 
-        private static bool IsSpecialPrintableKey(string key) => key is "[Space]" or "[Enter]" or "[Backspace]";
+        private static bool IsPrintableKey(string key, KeyType keyType) =>
+            keyType == KeyType.PrintableKey || SpecialPrintableKeys.Contains(key);
+
+        private static bool IsFunctionKey(string key, KeyType keyType) =>
+            keyType == KeyType.NonPrintableKey && FunctionKeys.Contains(key);
+
+        private static bool IsModifier(string key, KeyType keyType) =>
+            keyType == KeyType.NonPrintableKey && Modifiers.Contains(key);
     }
 }

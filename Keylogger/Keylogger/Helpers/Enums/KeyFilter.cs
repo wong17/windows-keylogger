@@ -4,6 +4,8 @@
     {
         AllKeys,
         PrintableCharacters,
-        NonPrintableKeys
+        NonPrintableKeys,
+        FunctionKeys,
+        ModifierKeys
     }
 }

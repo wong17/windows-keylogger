@@ -1,9 +1,9 @@
+using Keylogger.Helpers.Enums;
 using Keylogger.Hooks;
 using Keylogger.Services;
 using Keylogger.WMI;
-using static Keylogger.Helpers.KeyFilterHelper;
 using static Keylogger.Helpers.InputMessageHelper;
-using Keylogger.Helpers.Enums;
+using static Keylogger.Helpers.KeyFilterHelper;
 
 namespace Keylogger.Views
 {
@@ -72,6 +72,28 @@ namespace Keylogger.Views
             if (selectedKey is not null && KeyFilters.TryGetValue(selectedKey, out var filter))
             {
                 _selectedKeyFilter = filter;
+                if (filter == KeyFilter.FunctionKeys || filter == KeyFilter.ModifierKeys)
+                {
+                    CmbBoxEvents.Items.Clear();
+                    CmbBoxEvents.Items.AddRange([.. KeyboardEvents.Keys.TakeLast(2)]);
+                    CmbBoxEvents.SelectedIndex = 0; // Default to "Key Down & Sys Key Down" 
+                    UpdateSelectedEventPredicate();
+                    return;
+                }
+                
+                if (filter == KeyFilter.PrintableCharacters || filter == KeyFilter.NonPrintableKeys)
+                {
+                    CmbBoxEvents.Items.Clear();
+                    CmbBoxEvents.Items.AddRange([.. KeyboardEvents.Keys.Take(2)]);
+                    CmbBoxEvents.SelectedIndex = 0; // Default to "Key Down" 
+                    UpdateSelectedEventPredicate();
+                    return;
+                }
+
+                CmbBoxEvents.Items.Clear();
+                CmbBoxEvents.Items.AddRange([.. KeyboardEvents.Keys]);
+                CmbBoxEvents.SelectedIndex = 0; // Default to "Key Down"
+                UpdateSelectedEventPredicate();
             }
         }
 
