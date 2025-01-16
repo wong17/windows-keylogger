@@ -33,7 +33,7 @@
             RichTxtMouseButtons = new RichTextBox();
             label2 = new Label();
             label3 = new Label();
-            CmbBoxEvents = new ComboBox();
+            CmbBoxKeyboardEvents = new ComboBox();
             label4 = new Label();
             label5 = new Label();
             RichTxtMousePosition = new RichTextBox();
@@ -44,6 +44,8 @@
             ToolStripStatusLbl = new ToolStripStatusLabel();
             label7 = new Label();
             CmbBoxCaptureMouseButtons = new ComboBox();
+            label8 = new Label();
+            CmbBoxMouseEvents = new ComboBox();
             statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -104,24 +106,24 @@
             label3.TabIndex = 4;
             label3.Text = "Event to capture:";
             // 
-            // CmbBoxEvents
+            // CmbBoxKeyboardEvents
             // 
-            CmbBoxEvents.DropDownStyle = ComboBoxStyle.DropDownList;
-            CmbBoxEvents.FormattingEnabled = true;
-            CmbBoxEvents.Location = new Point(136, 57);
-            CmbBoxEvents.Name = "CmbBoxEvents";
-            CmbBoxEvents.Size = new Size(175, 23);
-            CmbBoxEvents.TabIndex = 1;
-            CmbBoxEvents.SelectedIndexChanged += CmbBoxEvents_SelectedIndexChanged;
+            CmbBoxKeyboardEvents.DropDownStyle = ComboBoxStyle.DropDownList;
+            CmbBoxKeyboardEvents.FormattingEnabled = true;
+            CmbBoxKeyboardEvents.Location = new Point(136, 57);
+            CmbBoxKeyboardEvents.Name = "CmbBoxKeyboardEvents";
+            CmbBoxKeyboardEvents.Size = new Size(175, 23);
+            CmbBoxKeyboardEvents.TabIndex = 1;
+            CmbBoxKeyboardEvents.SelectedIndexChanged += CmbBoxKeyboardEvents_SelectedIndexChanged;
             // 
             // label4
             // 
             label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.Location = new Point(609, 57);
             label4.Name = "label4";
-            label4.Size = new Size(162, 22);
+            label4.Size = new Size(113, 22);
             label4.TabIndex = 6;
-            label4.Text = "Pressed buttons:";
+            label4.Text = "Pressed buttons";
             // 
             // label5
             // 
@@ -207,11 +209,32 @@
             CmbBoxCaptureMouseButtons.TabIndex = 17;
             CmbBoxCaptureMouseButtons.SelectedIndexChanged += CmbBoxCaptureMouseButtons_SelectedIndexChanged;
             // 
+            // label8
+            // 
+            label8.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.Location = new Point(750, 57);
+            label8.Name = "label8";
+            label8.Size = new Size(45, 20);
+            label8.TabIndex = 18;
+            label8.Text = "Event:";
+            // 
+            // CmbBoxMouseEvents
+            // 
+            CmbBoxMouseEvents.DropDownStyle = ComboBoxStyle.DropDownList;
+            CmbBoxMouseEvents.FormattingEnabled = true;
+            CmbBoxMouseEvents.Location = new Point(801, 58);
+            CmbBoxMouseEvents.Name = "CmbBoxMouseEvents";
+            CmbBoxMouseEvents.Size = new Size(134, 23);
+            CmbBoxMouseEvents.TabIndex = 19;
+            CmbBoxMouseEvents.SelectedIndexChanged += CmbBoxMouseEvents_SelectedIndexChanged;
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1204, 670);
+            Controls.Add(CmbBoxMouseEvents);
+            Controls.Add(label8);
             Controls.Add(CmbBoxCaptureMouseButtons);
             Controls.Add(label7);
             Controls.Add(statusStrip1);
@@ -221,7 +244,7 @@
             Controls.Add(RichTxtMousePosition);
             Controls.Add(label5);
             Controls.Add(label4);
-            Controls.Add(CmbBoxEvents);
+            Controls.Add(CmbBoxKeyboardEvents);
             Controls.Add(label3);
             Controls.Add(RichTxtMouseButtons);
             Controls.Add(label2);
@@ -243,7 +266,7 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private ComboBox CmbBoxEvents;
+        private ComboBox CmbBoxKeyboardEvents;
         private RichTextBox RichTxtKeyboard;
         private RichTextBox RichTxtMouseButtons;
         private Label label4;
@@ -256,5 +279,7 @@
         private ToolStripStatusLabel ToolStripStatusLbl;
         private Label label7;
         private ComboBox CmbBoxCaptureMouseButtons;
+        private Label label8;
+        private ComboBox CmbBoxMouseEvents;
     }
 }

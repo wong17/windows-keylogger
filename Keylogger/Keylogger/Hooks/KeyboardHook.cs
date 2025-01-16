@@ -13,14 +13,14 @@ namespace Keylogger.Hooks
         public static Hookproc Hookproc => KeyboardHookCallback;
 
         public static Action<string, string, KeyType>? CallBackMethod;
-        public static Predicate<KeyboardMessage>? SelectedEventPredicate;
+        public static Predicate<KeyboardMessage>? SelectedKeyboardEventPredicate;
         private static readonly byte[] _keyboardState = new byte[256];
 
         private static KeyType KeyType { get; set; }
 
         private static IntPtr KeyboardHookCallback(int code, UIntPtr wParam, IntPtr lParam)
         {
-            if (code < 0 || SelectedEventPredicate is null || !SelectedEventPredicate.Invoke((KeyboardMessage)wParam))
+            if (code < 0 || SelectedKeyboardEventPredicate is null || !SelectedKeyboardEventPredicate.Invoke((KeyboardMessage)wParam))
             {
                 return CallNextHookEx(IntPtr.Zero, code, wParam, lParam);
             }

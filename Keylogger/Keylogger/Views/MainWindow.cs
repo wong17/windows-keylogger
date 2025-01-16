@@ -21,12 +21,16 @@ namespace Keylogger.Views
 
             ToolStripStatusLbl.Text = $"{Environment.MachineName} | {Win32OperatingSystem.GetOSVersion()}";
 
-            CmbBoxEvents.Items.AddRange([.. KeyboardEvents.Keys.Take(2)]);
-            CmbBoxEvents.SelectedIndex = 0; // Default to "Key Down"
-            UpdateSelectedEventPredicate();
+            CmbBoxKeyboardEvents.Items.AddRange([.. KeyboardEvents.Keys.Take(2)]);
+            CmbBoxKeyboardEvents.SelectedIndex = 0; // Default to "Key Down"
+            UpdateSelectedKeyboardEventPredicate();
 
             CmbBoxKeyFilter.Items.AddRange([.. KeyFilters.Keys]);
             CmbBoxKeyFilter.SelectedIndex = 1; // Default to "Printable characters"
+
+            CmbBoxMouseEvents.Items.AddRange([.. MouseEvents]);
+            CmbBoxMouseEvents.SelectedIndex = 0; // Default to "Mouse Up & Down"
+            UpdateSelectedMouseEventPredicate();
 
             CmbBoxCaptureMouseButtons.Items.AddRange([.. MouseButtonFilters.Keys]);
             CmbBoxCaptureMouseButtons.SelectedIndex = 0; // Default to "All"
@@ -65,12 +69,12 @@ namespace Keylogger.Views
             RichTxtMousePosition.AppendText(finalMessage + Environment.NewLine);
         }
 
-        private void UpdateSelectedEventPredicate()
+        private void UpdateSelectedKeyboardEventPredicate()
         {
-            var selectedKey = CmbBoxEvents.SelectedItem?.ToString();
+            var selectedKey = CmbBoxKeyboardEvents.SelectedItem?.ToString();
             if (selectedKey is not null && KeyboardEvents.TryGetValue(selectedKey, out var predicate))
             {
-                KeyboardHook.SelectedEventPredicate = predicate;
+                KeyboardHook.SelectedKeyboardEventPredicate = predicate;
             }
         }
 
@@ -80,27 +84,27 @@ namespace Keylogger.Views
             if (selectedKey is not null && KeyFilters.TryGetValue(selectedKey, out var filter))
             {
                 _selectedKeyFilter = filter;
-                CmbBoxEvents.Items.Clear();
+                CmbBoxKeyboardEvents.Items.Clear();
 
                 if (filter == KeyFilter.FunctionKeys || filter == KeyFilter.ModifierKeys)
                 {
-                    CmbBoxEvents.Items.AddRange([.. KeyboardEvents.Keys.TakeLast(2)]);
-                    CmbBoxEvents.SelectedIndex = 0; // Default to "Key Down & Sys Key Down" 
-                    UpdateSelectedEventPredicate();
+                    CmbBoxKeyboardEvents.Items.AddRange([.. KeyboardEvents.Keys.TakeLast(2)]);
+                    CmbBoxKeyboardEvents.SelectedIndex = 0; // Default to "Key Down & Sys Key Down"
+                    UpdateSelectedKeyboardEventPredicate();
                     return;
                 }
 
                 if (filter == KeyFilter.PrintableCharacters || filter == KeyFilter.NonPrintableKeys)
                 {
-                    CmbBoxEvents.Items.AddRange([.. KeyboardEvents.Keys.Take(2)]);
-                    CmbBoxEvents.SelectedIndex = 0; // Default to "Key Down" 
-                    UpdateSelectedEventPredicate();
+                    CmbBoxKeyboardEvents.Items.AddRange([.. KeyboardEvents.Keys.Take(2)]);
+                    CmbBoxKeyboardEvents.SelectedIndex = 0; // Default to "Key Down"
+                    UpdateSelectedKeyboardEventPredicate();
                     return;
                 }
 
-                CmbBoxEvents.Items.AddRange([.. KeyboardEvents.Keys]);
-                CmbBoxEvents.SelectedIndex = 0; // Default to "Key Down"
-                UpdateSelectedEventPredicate();
+                CmbBoxKeyboardEvents.Items.AddRange([.. KeyboardEvents.Keys]);
+                CmbBoxKeyboardEvents.SelectedIndex = 0; // Default to "Key Down"
+                UpdateSelectedKeyboardEventPredicate();
             }
         }
 
@@ -113,14 +117,26 @@ namespace Keylogger.Views
             }
         }
 
+        private void UpdateSelectedMouseEventPredicate()
+        {
+            var selectedKey = CmbBoxMouseEvents.SelectedItem?.ToString();
+            if (selectedKey is not null &&
+                MouseEventPredicates.TryGetValue((_selectedMouseButtonFilter, selectedKey), out var predicate))
+            {
+                MouseHook.SelectedMouseEventPredicate = predicate;
+            }
+        }
+
         private void MainWindow_Load(object sender, EventArgs e) => _hookService.InstallHooks();
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e) => _hookService.UninstallHooks();
 
-        private void CmbBoxEvents_SelectedIndexChanged(object sender, EventArgs e) => UpdateSelectedEventPredicate();
+        private void CmbBoxKeyboardEvents_SelectedIndexChanged(object sender, EventArgs e) => UpdateSelectedKeyboardEventPredicate();
 
         private void CmbBoxKeyFilter_SelectedIndexChanged(object sender, EventArgs e) => UpdateSelectedKeyFilter();
 
         private void CmbBoxCaptureMouseButtons_SelectedIndexChanged(object sender, EventArgs e) => UpdateSelectedMouseButtonFilter();
+
+        private void CmbBoxMouseEvents_SelectedIndexChanged(object sender, EventArgs e) => UpdateSelectedMouseEventPredicate();
     }
 }

@@ -3,12 +3,11 @@
     internal enum MouseButtonFilter
     {
         All,
-        MouseWheel,
         LeftButton,
         RightButton,
         MiddleButton,
-        LeftButtonAndRightButton,
-        LeftButtonAndMiddleButton,
-        RightButtonAndMiddleButton
+        LeftAndRightButton,
+        LeftAndMiddleButton,
+        RightAndMiddleButton
     }
 }
