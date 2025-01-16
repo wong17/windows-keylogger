@@ -19,12 +19,12 @@ namespace Keylogger.Views
 
             LblOS.Text = $"{Environment.MachineName} | {Win32OperatingSystem.GetOSVersion()}";
 
-            CmbBoxKeyFilter.Items.AddRange([.. KeyFilters.Keys]);
-            CmbBoxKeyFilter.SelectedIndex = 1; // Default to "Printable characters"
-
-            CmbBoxEvents.Items.AddRange([.. KeyboardEvents.Keys]);
+            CmbBoxEvents.Items.AddRange([.. KeyboardEvents.Keys.Take(2)]);
             CmbBoxEvents.SelectedIndex = 0; // Default to "Key Down"
             UpdateSelectedEventPredicate();
+
+            CmbBoxKeyFilter.Items.AddRange([.. KeyFilters.Keys]);
+            CmbBoxKeyFilter.SelectedIndex = 1; // Default to "Printable characters"
 
             KeyboardHook.CallBackMethod = LogKeyboardHook;
             MouseHook.LogMouseButtonsCallback = LogMouseButtons;
@@ -72,9 +72,10 @@ namespace Keylogger.Views
             if (selectedKey is not null && KeyFilters.TryGetValue(selectedKey, out var filter))
             {
                 _selectedKeyFilter = filter;
+                CmbBoxEvents.Items.Clear();
+
                 if (filter == KeyFilter.FunctionKeys || filter == KeyFilter.ModifierKeys)
                 {
-                    CmbBoxEvents.Items.Clear();
                     CmbBoxEvents.Items.AddRange([.. KeyboardEvents.Keys.TakeLast(2)]);
                     CmbBoxEvents.SelectedIndex = 0; // Default to "Key Down & Sys Key Down" 
                     UpdateSelectedEventPredicate();
@@ -83,14 +84,12 @@ namespace Keylogger.Views
                 
                 if (filter == KeyFilter.PrintableCharacters || filter == KeyFilter.NonPrintableKeys)
                 {
-                    CmbBoxEvents.Items.Clear();
                     CmbBoxEvents.Items.AddRange([.. KeyboardEvents.Keys.Take(2)]);
                     CmbBoxEvents.SelectedIndex = 0; // Default to "Key Down" 
                     UpdateSelectedEventPredicate();
                     return;
                 }
 
-                CmbBoxEvents.Items.Clear();
                 CmbBoxEvents.Items.AddRange([.. KeyboardEvents.Keys]);
                 CmbBoxEvents.SelectedIndex = 0; // Default to "Key Down"
                 UpdateSelectedEventPredicate();
