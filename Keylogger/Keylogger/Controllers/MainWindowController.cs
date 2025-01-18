@@ -79,6 +79,7 @@ namespace Keylogger.Controllers
             {
                 var time = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss tt");
                 _mainWindow.DgViewMouseButtons.Rows.Add(time, mouseButton, position, processName);
+                ScrollToLastRow(_mainWindow.DgViewMouseButtons);
             }
         }
 
@@ -143,6 +144,16 @@ namespace Keylogger.Controllers
                 MouseEventPredicates.TryGetValue((_selectedMouseButtonFilter, selectedKey), out var predicate))
             {
                 MouseHook.SelectedMouseEventPredicate = predicate;
+            }
+        }
+
+        private static void ScrollToLastRow(DataGridView dataGridView)
+        {
+            if (dataGridView.Rows.Count > 0)
+            {
+                dataGridView.FirstDisplayedScrollingRowIndex = dataGridView.Rows.Count - 1;
+                dataGridView.ClearSelection();
+                dataGridView.Rows[^1].Selected = true;
             }
         }
     }
