@@ -77,16 +77,14 @@ namespace Keylogger.Controllers
         {
             if (ShouldDisplayMouseButton(mouseButton, _selectedMouseButtonFilter))
             {
-                var time = DateTime.Now.ToString("hh:mm:ss tt");
-
+                var time = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss tt");
                 _mainWindow.DgViewMouseButtons.Rows.Add(time, mouseButton, position, processName);
             }
         }
 
         private void LogMousePosition(string message, string position, string processName)
         {
-            string time = DateTime.Now.ToString("hh:mm:ss tt");
-
+            var time = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss tt");
             _mainWindow.DgViewMousePosition.Rows.Add(time, message, position, processName);
         }
 

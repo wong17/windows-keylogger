@@ -48,15 +48,15 @@
             panel1 = new Panel();
             panel2 = new Panel();
             DgViewMousePosition = new DataGridView();
-            DgMousePositionColumnDate = new DataGridViewTextBoxColumn();
-            DgMousePositionColumnMessage = new DataGridViewTextBoxColumn();
-            DgColumnMousePositionPosition = new DataGridViewTextBoxColumn();
-            DgColumnMousePositionProcessName = new DataGridViewTextBoxColumn();
             DgViewMouseButtons = new DataGridView();
             DgMouseButtonColumnDate = new DataGridViewTextBoxColumn();
             DgViewMouseButtonColumnButton = new DataGridViewTextBoxColumn();
             DgViewMouseButtonColumnPosition = new DataGridViewTextBoxColumn();
             DgViewMouseButtonColumnProcessName = new DataGridViewTextBoxColumn();
+            DgMousePositionColumnDate = new DataGridViewTextBoxColumn();
+            DgMousePositionColumnMessage = new DataGridViewTextBoxColumn();
+            DgColumnMousePositionPosition = new DataGridViewTextBoxColumn();
+            DgColumnMousePositionProcessName = new DataGridViewTextBoxColumn();
             statusStrip1.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -213,7 +213,7 @@
             panel1.Controls.Add(CmbBoxKeyFilter);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1296, 821);
+            panel1.Size = new Size(1296, 401);
             panel1.TabIndex = 21;
             // 
             // panel2
@@ -251,32 +251,9 @@
             DgViewMousePosition.Location = new Point(661, 78);
             DgViewMousePosition.Name = "DgViewMousePosition";
             DgViewMousePosition.RowHeadersVisible = false;
+            DgViewMousePosition.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DgViewMousePosition.Size = new Size(615, 320);
             DgViewMousePosition.TabIndex = 21;
-            // 
-            // DgMousePositionColumnDate
-            // 
-            DgMousePositionColumnDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            DgMousePositionColumnDate.HeaderText = "Date";
-            DgMousePositionColumnDate.Name = "DgMousePositionColumnDate";
-            // 
-            // DgMousePositionColumnMessage
-            // 
-            DgMousePositionColumnMessage.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            DgMousePositionColumnMessage.HeaderText = "Message";
-            DgMousePositionColumnMessage.Name = "DgMousePositionColumnMessage";
-            // 
-            // DgColumnMousePositionPosition
-            // 
-            DgColumnMousePositionPosition.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            DgColumnMousePositionPosition.HeaderText = "Position";
-            DgColumnMousePositionPosition.Name = "DgColumnMousePositionPosition";
-            // 
-            // DgColumnMousePositionProcessName
-            // 
-            DgColumnMousePositionProcessName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            DgColumnMousePositionProcessName.HeaderText = "Process name";
-            DgColumnMousePositionProcessName.Name = "DgColumnMousePositionProcessName";
             // 
             // DgViewMouseButtons
             // 
@@ -303,10 +280,12 @@
             // 
             // DgMouseButtonColumnDate
             // 
-            DgMouseButtonColumnDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            DgMouseButtonColumnDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             DgMouseButtonColumnDate.HeaderText = "Date";
             DgMouseButtonColumnDate.Name = "DgMouseButtonColumnDate";
             DgMouseButtonColumnDate.ReadOnly = true;
+            DgMouseButtonColumnDate.SortMode = DataGridViewColumnSortMode.NotSortable;
+            DgMouseButtonColumnDate.Width = 37;
             // 
             // DgViewMouseButtonColumnButton
             // 
@@ -314,6 +293,7 @@
             DgViewMouseButtonColumnButton.HeaderText = "Button";
             DgViewMouseButtonColumnButton.Name = "DgViewMouseButtonColumnButton";
             DgViewMouseButtonColumnButton.ReadOnly = true;
+            DgViewMouseButtonColumnButton.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
             // DgViewMouseButtonColumnPosition
             // 
@@ -321,6 +301,7 @@
             DgViewMouseButtonColumnPosition.HeaderText = "Position";
             DgViewMouseButtonColumnPosition.Name = "DgViewMouseButtonColumnPosition";
             DgViewMouseButtonColumnPosition.ReadOnly = true;
+            DgViewMouseButtonColumnPosition.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
             // DgViewMouseButtonColumnProcessName
             // 
@@ -328,6 +309,36 @@
             DgViewMouseButtonColumnProcessName.HeaderText = "Process name";
             DgViewMouseButtonColumnProcessName.Name = "DgViewMouseButtonColumnProcessName";
             DgViewMouseButtonColumnProcessName.ReadOnly = true;
+            DgViewMouseButtonColumnProcessName.SortMode = DataGridViewColumnSortMode.NotSortable;
+            // 
+            // DgMousePositionColumnDate
+            // 
+            DgMousePositionColumnDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            DgMousePositionColumnDate.HeaderText = "Date";
+            DgMousePositionColumnDate.Name = "DgMousePositionColumnDate";
+            DgMousePositionColumnDate.SortMode = DataGridViewColumnSortMode.NotSortable;
+            DgMousePositionColumnDate.Width = 37;
+            // 
+            // DgMousePositionColumnMessage
+            // 
+            DgMousePositionColumnMessage.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            DgMousePositionColumnMessage.HeaderText = "Message";
+            DgMousePositionColumnMessage.Name = "DgMousePositionColumnMessage";
+            DgMousePositionColumnMessage.SortMode = DataGridViewColumnSortMode.NotSortable;
+            // 
+            // DgColumnMousePositionPosition
+            // 
+            DgColumnMousePositionPosition.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            DgColumnMousePositionPosition.HeaderText = "Position";
+            DgColumnMousePositionPosition.Name = "DgColumnMousePositionPosition";
+            DgColumnMousePositionPosition.SortMode = DataGridViewColumnSortMode.NotSortable;
+            // 
+            // DgColumnMousePositionProcessName
+            // 
+            DgColumnMousePositionProcessName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            DgColumnMousePositionProcessName.HeaderText = "Process name";
+            DgColumnMousePositionProcessName.Name = "DgColumnMousePositionProcessName";
+            DgColumnMousePositionProcessName.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
             // MainWindow
             // 
