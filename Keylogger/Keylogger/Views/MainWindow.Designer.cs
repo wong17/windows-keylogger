@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             label1 = new Label();
-            RichTxtMouseButtons = new RichTextBox();
             label2 = new Label();
             label3 = new Label();
             CmbBoxKeyboardEvents = new ComboBox();
@@ -44,12 +45,23 @@
             label8 = new Label();
             CmbBoxMouseEvents = new ComboBox();
             RichTxtKeyboard = new RichTextBox();
-            RichTxtMousePosition = new RichTextBox();
             panel1 = new Panel();
             panel2 = new Panel();
+            DgViewMousePosition = new DataGridView();
+            DgMousePositionColumnDate = new DataGridViewTextBoxColumn();
+            DgMousePositionColumnMessage = new DataGridViewTextBoxColumn();
+            DgColumnMousePositionPosition = new DataGridViewTextBoxColumn();
+            DgColumnMousePositionProcessName = new DataGridViewTextBoxColumn();
+            DgViewMouseButtons = new DataGridView();
+            DgMouseButtonColumnDate = new DataGridViewTextBoxColumn();
+            DgViewMouseButtonColumnButton = new DataGridViewTextBoxColumn();
+            DgViewMouseButtonColumnPosition = new DataGridViewTextBoxColumn();
+            DgViewMouseButtonColumnProcessName = new DataGridViewTextBoxColumn();
             statusStrip1.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)DgViewMousePosition).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DgViewMouseButtons).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -61,20 +73,6 @@
             label1.Size = new Size(76, 21);
             label1.TabIndex = 0;
             label1.Text = "Keyboard";
-            // 
-            // RichTxtMouseButtons
-            // 
-            RichTxtMouseButtons.BackColor = SystemColors.ControlLight;
-            RichTxtMouseButtons.BorderStyle = BorderStyle.None;
-            RichTxtMouseButtons.Font = new Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            RichTxtMouseButtons.HideSelection = false;
-            RichTxtMouseButtons.Location = new Point(17, 78);
-            RichTxtMouseButtons.Name = "RichTxtMouseButtons";
-            RichTxtMouseButtons.ReadOnly = true;
-            RichTxtMouseButtons.Size = new Size(615, 322);
-            RichTxtMouseButtons.TabIndex = 3;
-            RichTxtMouseButtons.TabStop = false;
-            RichTxtMouseButtons.Text = "";
             // 
             // label2
             // 
@@ -89,7 +87,7 @@
             // label3
             // 
             label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(754, 10);
+            label3.Location = new Point(746, 10);
             label3.Name = "label3";
             label3.Size = new Size(106, 22);
             label3.TabIndex = 4;
@@ -99,7 +97,7 @@
             // 
             CmbBoxKeyboardEvents.DropDownStyle = ComboBoxStyle.DropDownList;
             CmbBoxKeyboardEvents.FormattingEnabled = true;
-            CmbBoxKeyboardEvents.Location = new Point(866, 9);
+            CmbBoxKeyboardEvents.Location = new Point(858, 9);
             CmbBoxKeyboardEvents.Name = "CmbBoxKeyboardEvents";
             CmbBoxKeyboardEvents.Size = new Size(175, 23);
             CmbBoxKeyboardEvents.TabIndex = 1;
@@ -116,7 +114,7 @@
             // label5
             // 
             label5.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(670, 53);
+            label5.Location = new Point(661, 53);
             label5.Name = "label5";
             label5.Size = new Size(162, 22);
             label5.TabIndex = 7;
@@ -125,7 +123,7 @@
             // label6
             // 
             label6.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(1056, 10);
+            label6.Location = new Point(1048, 10);
             label6.Name = "label6";
             label6.Size = new Size(47, 22);
             label6.TabIndex = 12;
@@ -135,7 +133,7 @@
             // 
             CmbBoxKeyFilter.DropDownStyle = ComboBoxStyle.DropDownList;
             CmbBoxKeyFilter.FormattingEnabled = true;
-            CmbBoxKeyFilter.Location = new Point(1109, 11);
+            CmbBoxKeyFilter.Location = new Point(1101, 11);
             CmbBoxKeyFilter.Name = "CmbBoxKeyFilter";
             CmbBoxKeyFilter.Size = new Size(175, 23);
             CmbBoxKeyFilter.TabIndex = 2;
@@ -157,7 +155,7 @@
             // label7
             // 
             label7.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(1071, 23);
+            label7.Location = new Point(426, 49);
             label7.Name = "label7";
             label7.Size = new Size(51, 23);
             label7.TabIndex = 16;
@@ -167,7 +165,7 @@
             // 
             CmbBoxCaptureMouseButtons.DropDownStyle = ComboBoxStyle.DropDownList;
             CmbBoxCaptureMouseButtons.FormattingEnabled = true;
-            CmbBoxCaptureMouseButtons.Location = new Point(1128, 23);
+            CmbBoxCaptureMouseButtons.Location = new Point(483, 46);
             CmbBoxCaptureMouseButtons.Name = "CmbBoxCaptureMouseButtons";
             CmbBoxCaptureMouseButtons.Size = new Size(156, 23);
             CmbBoxCaptureMouseButtons.TabIndex = 17;
@@ -175,7 +173,7 @@
             // label8
             // 
             label8.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(857, 21);
+            label8.Location = new Point(212, 47);
             label8.Name = "label8";
             label8.Size = new Size(44, 20);
             label8.TabIndex = 18;
@@ -185,7 +183,7 @@
             // 
             CmbBoxMouseEvents.DropDownStyle = ComboBoxStyle.DropDownList;
             CmbBoxMouseEvents.FormattingEnabled = true;
-            CmbBoxMouseEvents.Location = new Point(907, 21);
+            CmbBoxMouseEvents.Location = new Point(262, 47);
             CmbBoxMouseEvents.Name = "CmbBoxMouseEvents";
             CmbBoxMouseEvents.Size = new Size(134, 23);
             CmbBoxMouseEvents.TabIndex = 19;
@@ -199,24 +197,10 @@
             RichTxtKeyboard.Location = new Point(17, 40);
             RichTxtKeyboard.Name = "RichTxtKeyboard";
             RichTxtKeyboard.ReadOnly = true;
-            RichTxtKeyboard.Size = new Size(1267, 348);
+            RichTxtKeyboard.Size = new Size(1259, 348);
             RichTxtKeyboard.TabIndex = 13;
             RichTxtKeyboard.TabStop = false;
             RichTxtKeyboard.Text = "";
-            // 
-            // RichTxtMousePosition
-            // 
-            RichTxtMousePosition.BackColor = SystemColors.ControlLight;
-            RichTxtMousePosition.BorderStyle = BorderStyle.None;
-            RichTxtMousePosition.Font = new Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            RichTxtMousePosition.HideSelection = false;
-            RichTxtMousePosition.Location = new Point(670, 78);
-            RichTxtMousePosition.Name = "RichTxtMousePosition";
-            RichTxtMousePosition.ReadOnly = true;
-            RichTxtMousePosition.Size = new Size(614, 322);
-            RichTxtMousePosition.TabIndex = 20;
-            RichTxtMousePosition.TabStop = false;
-            RichTxtMousePosition.Text = "";
             // 
             // panel1
             // 
@@ -229,24 +213,121 @@
             panel1.Controls.Add(CmbBoxKeyFilter);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1296, 404);
+            panel1.Size = new Size(1296, 821);
             panel1.TabIndex = 21;
             // 
             // panel2
             // 
-            panel2.Controls.Add(RichTxtMouseButtons);
+            panel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel2.Controls.Add(DgViewMousePosition);
+            panel2.Controls.Add(DgViewMouseButtons);
             panel2.Controls.Add(label7);
             panel2.Controls.Add(label5);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(CmbBoxMouseEvents);
-            panel2.Controls.Add(RichTxtMousePosition);
             panel2.Controls.Add(CmbBoxCaptureMouseButtons);
             panel2.Controls.Add(label4);
             panel2.Controls.Add(label8);
-            panel2.Location = new Point(0, 404);
+            panel2.Location = new Point(0, 407);
             panel2.Name = "panel2";
             panel2.Size = new Size(1296, 414);
             panel2.TabIndex = 22;
+            // 
+            // DgViewMousePosition
+            // 
+            DgViewMousePosition.AllowUserToAddRows = false;
+            DgViewMousePosition.BackgroundColor = SystemColors.ControlLight;
+            DgViewMousePosition.BorderStyle = BorderStyle.None;
+            DgViewMousePosition.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DgViewMousePosition.Columns.AddRange(new DataGridViewColumn[] { DgMousePositionColumnDate, DgMousePositionColumnMessage, DgColumnMousePositionPosition, DgColumnMousePositionProcessName });
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            DgViewMousePosition.DefaultCellStyle = dataGridViewCellStyle1;
+            DgViewMousePosition.Location = new Point(661, 78);
+            DgViewMousePosition.Name = "DgViewMousePosition";
+            DgViewMousePosition.RowHeadersVisible = false;
+            DgViewMousePosition.Size = new Size(615, 320);
+            DgViewMousePosition.TabIndex = 21;
+            // 
+            // DgMousePositionColumnDate
+            // 
+            DgMousePositionColumnDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            DgMousePositionColumnDate.HeaderText = "Date";
+            DgMousePositionColumnDate.Name = "DgMousePositionColumnDate";
+            // 
+            // DgMousePositionColumnMessage
+            // 
+            DgMousePositionColumnMessage.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            DgMousePositionColumnMessage.HeaderText = "Message";
+            DgMousePositionColumnMessage.Name = "DgMousePositionColumnMessage";
+            // 
+            // DgColumnMousePositionPosition
+            // 
+            DgColumnMousePositionPosition.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            DgColumnMousePositionPosition.HeaderText = "Position";
+            DgColumnMousePositionPosition.Name = "DgColumnMousePositionPosition";
+            // 
+            // DgColumnMousePositionProcessName
+            // 
+            DgColumnMousePositionProcessName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            DgColumnMousePositionProcessName.HeaderText = "Process name";
+            DgColumnMousePositionProcessName.Name = "DgColumnMousePositionProcessName";
+            // 
+            // DgViewMouseButtons
+            // 
+            DgViewMouseButtons.AllowUserToAddRows = false;
+            DgViewMouseButtons.BackgroundColor = SystemColors.ControlLight;
+            DgViewMouseButtons.BorderStyle = BorderStyle.None;
+            DgViewMouseButtons.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DgViewMouseButtons.Columns.AddRange(new DataGridViewColumn[] { DgMouseButtonColumnDate, DgViewMouseButtonColumnButton, DgViewMouseButtonColumnPosition, DgViewMouseButtonColumnProcessName });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            DgViewMouseButtons.DefaultCellStyle = dataGridViewCellStyle2;
+            DgViewMouseButtons.Location = new Point(17, 78);
+            DgViewMouseButtons.Name = "DgViewMouseButtons";
+            DgViewMouseButtons.ReadOnly = true;
+            DgViewMouseButtons.RowHeadersVisible = false;
+            DgViewMouseButtons.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DgViewMouseButtons.Size = new Size(622, 320);
+            DgViewMouseButtons.TabIndex = 20;
+            // 
+            // DgMouseButtonColumnDate
+            // 
+            DgMouseButtonColumnDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            DgMouseButtonColumnDate.HeaderText = "Date";
+            DgMouseButtonColumnDate.Name = "DgMouseButtonColumnDate";
+            DgMouseButtonColumnDate.ReadOnly = true;
+            // 
+            // DgViewMouseButtonColumnButton
+            // 
+            DgViewMouseButtonColumnButton.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            DgViewMouseButtonColumnButton.HeaderText = "Button";
+            DgViewMouseButtonColumnButton.Name = "DgViewMouseButtonColumnButton";
+            DgViewMouseButtonColumnButton.ReadOnly = true;
+            // 
+            // DgViewMouseButtonColumnPosition
+            // 
+            DgViewMouseButtonColumnPosition.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            DgViewMouseButtonColumnPosition.HeaderText = "Position";
+            DgViewMouseButtonColumnPosition.Name = "DgViewMouseButtonColumnPosition";
+            DgViewMouseButtonColumnPosition.ReadOnly = true;
+            // 
+            // DgViewMouseButtonColumnProcessName
+            // 
+            DgViewMouseButtonColumnProcessName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            DgViewMouseButtonColumnProcessName.HeaderText = "Process name";
+            DgViewMouseButtonColumnProcessName.Name = "DgViewMouseButtonColumnProcessName";
+            DgViewMouseButtonColumnProcessName.ReadOnly = true;
             // 
             // MainWindow
             // 
@@ -265,6 +346,8 @@
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)DgViewMousePosition).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DgViewMouseButtons).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -283,12 +366,20 @@
         internal ComboBox CmbBoxKeyboardEvents;
         internal ComboBox CmbBoxKeyFilter;
         internal ComboBox CmbBoxMouseEvents;
-        internal RichTextBox RichTxtMouseButtons;
         internal ComboBox CmbBoxCaptureMouseButtons;
         internal StatusStrip statusStrip1;
         internal RichTextBox RichTxtKeyboard;
-        internal RichTextBox RichTxtMousePosition;
         private Panel panel1;
         private Panel panel2;
+        internal DataGridView DgViewMousePosition;
+        internal DataGridView DgViewMouseButtons;
+        private DataGridViewTextBoxColumn DgMouseButtonColumnDate;
+        private DataGridViewTextBoxColumn DgViewMouseButtonColumnButton;
+        private DataGridViewTextBoxColumn DgViewMouseButtonColumnPosition;
+        private DataGridViewTextBoxColumn DgViewMouseButtonColumnProcessName;
+        private DataGridViewTextBoxColumn DgMousePositionColumnDate;
+        private DataGridViewTextBoxColumn DgMousePositionColumnMessage;
+        private DataGridViewTextBoxColumn DgColumnMousePositionPosition;
+        private DataGridViewTextBoxColumn DgColumnMousePositionProcessName;
     }
 }

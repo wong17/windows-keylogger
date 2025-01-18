@@ -78,20 +78,16 @@ namespace Keylogger.Controllers
             if (ShouldDisplayMouseButton(mouseButton, _selectedMouseButtonFilter))
             {
                 var time = DateTime.Now.ToString("hh:mm:ss tt");
-                var format = "{0,-15}{1,-21}{2,18}{3,30}";
-                var finalMessage = string.Format(format, time, mouseButton, position, processName);
 
-                _mainWindow.RichTxtMouseButtons.AppendText(finalMessage + Environment.NewLine);
+                _mainWindow.DgViewMouseButtons.Rows.Add(time, mouseButton, position, processName);
             }
         }
 
         private void LogMousePosition(string message, string position, string processName)
         {
             string time = DateTime.Now.ToString("hh:mm:ss tt");
-            var format = "{0,-15}{1,-13}{2,18}{3,30}";
-            var finalMessage = string.Format(format, time, message, position, processName);
 
-            _mainWindow.RichTxtMousePosition.AppendText(finalMessage + Environment.NewLine);
+            _mainWindow.DgViewMousePosition.Rows.Add(time, message, position, processName);
         }
 
         private void UpdateSelectedKeyboardEventPredicate()
