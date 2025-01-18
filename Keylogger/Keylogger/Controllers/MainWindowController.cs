@@ -77,7 +77,7 @@ namespace Keylogger.Controllers
         {
             if (ShouldDisplayMouseButton(mouseButton, _selectedMouseButtonFilter))
             {
-                var time = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss tt");
+                var time = DateTime.Now.ToString("dd-MM-yy hh:mm:ss tt");
                 _mainWindow.DgViewMouseButtons.Rows.Add(time, mouseButton, position, processName);
                 ScrollToLastRow(_mainWindow.DgViewMouseButtons);
             }
@@ -85,8 +85,8 @@ namespace Keylogger.Controllers
 
         private void LogMousePosition(string message, string position, string processName)
         {
-            var time = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss tt");
-            _mainWindow.RichTxtMousePosition.AppendText($"{time} | {message} | {position} | {processName}\n");
+            var time = DateTime.Now.ToString("dd-MM-yy hh:mm:ss tt");
+            _mainWindow.RichTxtMousePosition.AppendText($"{time} | {message} | {position} | {processName}" + Environment.NewLine);
         }
 
         private void UpdateSelectedKeyboardEventPredicate()
