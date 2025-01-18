@@ -86,7 +86,7 @@ namespace Keylogger.Controllers
         private void LogMousePosition(string message, string position, string processName)
         {
             var time = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss tt");
-            _mainWindow.DgViewMousePosition.Rows.Add(time, message, position, processName);
+            _mainWindow.RichTxtMousePosition.AppendText($"{time} | {message} | {position} | {processName}\n");
         }
 
         private void UpdateSelectedKeyboardEventPredicate()
