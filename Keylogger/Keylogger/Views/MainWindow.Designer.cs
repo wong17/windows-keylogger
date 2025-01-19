@@ -133,7 +133,7 @@
             label5.Name = "label5";
             label5.Size = new Size(624, 42);
             label5.TabIndex = 7;
-            label5.Text = "Cursor position:";
+            label5.Text = "Cursor position";
             // 
             // label6
             // 
