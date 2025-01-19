@@ -1,4 +1,4 @@
-# Windows keylogger
+# Windows Keylogger
 
 ![image](https://github.com/user-attachments/assets/b755e502-270e-492c-97bb-64d23ad51e31)
 
