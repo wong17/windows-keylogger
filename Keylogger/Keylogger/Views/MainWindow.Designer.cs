@@ -112,9 +112,9 @@
             label4.Dock = DockStyle.Fill;
             label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.Location = new Point(0, 0);
-            label4.Margin = new Padding(0, 0, 3, 0);
+            label4.Margin = new Padding(0, 0, 3, 8);
             label4.Name = "label4";
-            label4.Size = new Size(198, 52);
+            label4.Size = new Size(198, 44);
             label4.TabIndex = 6;
             label4.Text = "Pressed buttons";
             label4.TextAlign = ContentAlignment.MiddleLeft;
