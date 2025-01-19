@@ -21,7 +21,7 @@ namespace Keylogger.Controllers
         public MainWindowController(MainWindow mainWindow)
         {
             _mainWindow = mainWindow;
-
+            
             SetupEvents();
 
             _mainWindow.ToolStripStatusLbl.Text = $"{Environment.MachineName} | {Win32OperatingSystem.GetOSVersion()}";

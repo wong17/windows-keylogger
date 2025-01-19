@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -73,10 +73,10 @@
             // 
             // label1
             // 
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Consolas", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.Location = new Point(13, 14);
             label1.Name = "label1";
-            label1.Size = new Size(80, 22);
+            label1.Size = new Size(90, 22);
             label1.TabIndex = 0;
             label1.Text = "Keyboard";
             // 
@@ -84,20 +84,20 @@
             // 
             label2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Consolas", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.Location = new Point(13, 404);
             label2.Name = "label2";
-            label2.Size = new Size(57, 21);
+            label2.Size = new Size(60, 22);
             label2.TabIndex = 5;
             label2.Text = "Mouse";
             // 
             // label3
             // 
             label3.Anchor = AnchorStyles.Right;
-            label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.Location = new Point(3, 1);
             label3.Name = "label3";
-            label3.Size = new Size(106, 26);
+            label3.Size = new Size(144, 26);
             label3.TabIndex = 1;
             label3.Text = "Event to capture:";
             label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -106,8 +106,9 @@
             // 
             CmbBoxKeyboardEvents.Anchor = AnchorStyles.Right;
             CmbBoxKeyboardEvents.DropDownStyle = ComboBoxStyle.DropDownList;
+            CmbBoxKeyboardEvents.Font = new Font("Consolas", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             CmbBoxKeyboardEvents.FormattingEnabled = true;
-            CmbBoxKeyboardEvents.Location = new Point(115, 3);
+            CmbBoxKeyboardEvents.Location = new Point(153, 3);
             CmbBoxKeyboardEvents.Name = "CmbBoxKeyboardEvents";
             CmbBoxKeyboardEvents.Size = new Size(175, 23);
             CmbBoxKeyboardEvents.TabIndex = 2;
@@ -115,11 +116,11 @@
             // label4
             // 
             label4.Dock = DockStyle.Fill;
-            label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Font = new Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.Location = new Point(0, 0);
             label4.Margin = new Padding(0, 0, 3, 8);
             label4.Name = "label4";
-            label4.Size = new Size(198, 44);
+            label4.Size = new Size(159, 44);
             label4.TabIndex = 6;
             label4.Text = "Pressed buttons";
             label4.TextAlign = ContentAlignment.MiddleLeft;
@@ -127,7 +128,7 @@
             // label5
             // 
             label5.Dock = DockStyle.Fill;
-            label5.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Font = new Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.Location = new Point(3, 0);
             label5.Name = "label5";
             label5.Size = new Size(624, 42);
@@ -137,10 +138,10 @@
             // label6
             // 
             label6.Anchor = AnchorStyles.Right;
-            label6.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(296, 1);
+            label6.Font = new Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(334, 1);
             label6.Name = "label6";
-            label6.Size = new Size(42, 26);
+            label6.Size = new Size(51, 26);
             label6.TabIndex = 3;
             label6.Text = "Show:";
             label6.TextAlign = ContentAlignment.MiddleCenter;
@@ -149,10 +150,11 @@
             // 
             CmbBoxKeyFilter.Anchor = AnchorStyles.Right;
             CmbBoxKeyFilter.DropDownStyle = ComboBoxStyle.DropDownList;
+            CmbBoxKeyFilter.Font = new Font("Consolas", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             CmbBoxKeyFilter.FormattingEnabled = true;
-            CmbBoxKeyFilter.Location = new Point(344, 3);
+            CmbBoxKeyFilter.Location = new Point(391, 3);
             CmbBoxKeyFilter.Name = "CmbBoxKeyFilter";
-            CmbBoxKeyFilter.Size = new Size(211, 23);
+            CmbBoxKeyFilter.Size = new Size(267, 23);
             CmbBoxKeyFilter.TabIndex = 4;
             // 
             // statusStrip1
@@ -172,10 +174,10 @@
             // label7
             // 
             label7.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label7.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(193, 0);
+            label7.Font = new Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.Location = new Point(206, 0);
             label7.Name = "label7";
-            label7.Size = new Size(58, 39);
+            label7.Size = new Size(73, 39);
             label7.TabIndex = 9;
             label7.Text = "Buttons:";
             label7.TextAlign = ContentAlignment.MiddleCenter;
@@ -183,20 +185,21 @@
             // CmbBoxCaptureMouseButtons
             // 
             CmbBoxCaptureMouseButtons.DropDownStyle = ComboBoxStyle.DropDownList;
+            CmbBoxCaptureMouseButtons.Font = new Font("Consolas", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             CmbBoxCaptureMouseButtons.FormattingEnabled = true;
-            CmbBoxCaptureMouseButtons.Location = new Point(257, 10);
+            CmbBoxCaptureMouseButtons.Location = new Point(285, 10);
             CmbBoxCaptureMouseButtons.Margin = new Padding(3, 10, 0, 3);
             CmbBoxCaptureMouseButtons.Name = "CmbBoxCaptureMouseButtons";
-            CmbBoxCaptureMouseButtons.Size = new Size(163, 23);
+            CmbBoxCaptureMouseButtons.Size = new Size(179, 23);
             CmbBoxCaptureMouseButtons.TabIndex = 10;
             // 
             // label8
             // 
             label8.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label8.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.Font = new Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label8.Location = new Point(3, 0);
             label8.Name = "label8";
-            label8.Size = new Size(44, 39);
+            label8.Size = new Size(57, 39);
             label8.TabIndex = 7;
             label8.Text = "Event:";
             label8.TextAlign = ContentAlignment.MiddleCenter;
@@ -204,8 +207,9 @@
             // CmbBoxMouseEvents
             // 
             CmbBoxMouseEvents.DropDownStyle = ComboBoxStyle.DropDownList;
+            CmbBoxMouseEvents.Font = new Font("Consolas", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             CmbBoxMouseEvents.FormattingEnabled = true;
-            CmbBoxMouseEvents.Location = new Point(53, 10);
+            CmbBoxMouseEvents.Location = new Point(66, 10);
             CmbBoxMouseEvents.Margin = new Padding(3, 10, 3, 3);
             CmbBoxMouseEvents.Name = "CmbBoxMouseEvents";
             CmbBoxMouseEvents.Size = new Size(134, 23);
@@ -245,9 +249,9 @@
             flowLayoutPanel1.Controls.Add(CmbBoxKeyboardEvents);
             flowLayoutPanel1.Controls.Add(label6);
             flowLayoutPanel1.Controls.Add(CmbBoxKeyFilter);
-            flowLayoutPanel1.Location = new Point(721, 14);
+            flowLayoutPanel1.Location = new Point(617, 14);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(558, 30);
+            flowLayoutPanel1.Size = new Size(661, 30);
             flowLayoutPanel1.TabIndex = 14;
             // 
             // tableLayoutPanel3
@@ -268,8 +272,8 @@
             // tableLayoutPanel2
             // 
             tableLayoutPanel2.ColumnCount = 2;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 32F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 68F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.7731953F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 74.22681F));
             tableLayoutPanel2.Controls.Add(flowLayoutPanel2, 1, 0);
             tableLayoutPanel2.Controls.Add(label4, 0, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
@@ -287,10 +291,10 @@
             flowLayoutPanel2.Controls.Add(label7);
             flowLayoutPanel2.Controls.Add(CmbBoxCaptureMouseButtons);
             flowLayoutPanel2.Dock = DockStyle.Fill;
-            flowLayoutPanel2.Location = new Point(204, 3);
+            flowLayoutPanel2.Location = new Point(165, 3);
             flowLayoutPanel2.Margin = new Padding(3, 3, 0, 3);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(425, 46);
+            flowLayoutPanel2.Size = new Size(464, 46);
             flowLayoutPanel2.TabIndex = 23;
             // 
             // DgViewMouseButtons
@@ -299,24 +303,24 @@
             DgViewMouseButtons.AllowUserToResizeRows = false;
             DgViewMouseButtons.BackgroundColor = SystemColors.ControlLight;
             DgViewMouseButtons.BorderStyle = BorderStyle.None;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = Color.Silver;
-            dataGridViewCellStyle7.Font = new Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle7.ForeColor = Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            DgViewMouseButtons.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.Silver;
+            dataGridViewCellStyle1.Font = new Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            DgViewMouseButtons.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             DgViewMouseButtons.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DgViewMouseButtons.Columns.AddRange(new DataGridViewColumn[] { DgMouseButtonColumnDate, DgViewMouseButtonColumnButton, DgViewMouseButtonColumnPosition, DgViewMouseButtonColumnProcessName });
-            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = SystemColors.Window;
-            dataGridViewCellStyle12.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle12.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = Color.Silver;
-            dataGridViewCellStyle12.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.False;
-            DgViewMouseButtons.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = Color.Silver;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            DgViewMouseButtons.DefaultCellStyle = dataGridViewCellStyle6;
             DgViewMouseButtons.Dock = DockStyle.Fill;
             DgViewMouseButtons.EnableHeadersVisualStyles = false;
             DgViewMouseButtons.Location = new Point(3, 61);
@@ -326,12 +330,13 @@
             DgViewMouseButtons.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DgViewMouseButtons.Size = new Size(629, 326);
             DgViewMouseButtons.TabIndex = 20;
+            DgViewMouseButtons.TabStop = false;
             // 
             // DgMouseButtonColumnDate
             // 
             DgMouseButtonColumnDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle8.ForeColor = Color.White;
-            DgMouseButtonColumnDate.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            DgMouseButtonColumnDate.DefaultCellStyle = dataGridViewCellStyle2;
             DgMouseButtonColumnDate.HeaderText = "Date";
             DgMouseButtonColumnDate.Name = "DgMouseButtonColumnDate";
             DgMouseButtonColumnDate.ReadOnly = true;
@@ -341,8 +346,8 @@
             // DgViewMouseButtonColumnButton
             // 
             DgViewMouseButtonColumnButton.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle9.ForeColor = Color.White;
-            DgViewMouseButtonColumnButton.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            DgViewMouseButtonColumnButton.DefaultCellStyle = dataGridViewCellStyle3;
             DgViewMouseButtonColumnButton.HeaderText = "Button";
             DgViewMouseButtonColumnButton.Name = "DgViewMouseButtonColumnButton";
             DgViewMouseButtonColumnButton.ReadOnly = true;
@@ -351,8 +356,8 @@
             // DgViewMouseButtonColumnPosition
             // 
             DgViewMouseButtonColumnPosition.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle10.ForeColor = Color.White;
-            DgViewMouseButtonColumnPosition.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.ForeColor = Color.White;
+            DgViewMouseButtonColumnPosition.DefaultCellStyle = dataGridViewCellStyle4;
             DgViewMouseButtonColumnPosition.HeaderText = "Position";
             DgViewMouseButtonColumnPosition.Name = "DgViewMouseButtonColumnPosition";
             DgViewMouseButtonColumnPosition.ReadOnly = true;
@@ -361,8 +366,8 @@
             // DgViewMouseButtonColumnProcessName
             // 
             DgViewMouseButtonColumnProcessName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle11.ForeColor = Color.White;
-            DgViewMouseButtonColumnProcessName.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            DgViewMouseButtonColumnProcessName.DefaultCellStyle = dataGridViewCellStyle5;
             DgViewMouseButtonColumnProcessName.HeaderText = "Process name";
             DgViewMouseButtonColumnProcessName.Name = "DgViewMouseButtonColumnProcessName";
             DgViewMouseButtonColumnProcessName.ReadOnly = true;
@@ -396,6 +401,7 @@
             RichTxtMousePosition.ReadOnly = true;
             RichTxtMousePosition.Size = new Size(624, 326);
             RichTxtMousePosition.TabIndex = 21;
+            RichTxtMousePosition.TabStop = false;
             RichTxtMousePosition.Text = "";
             // 
             // MainWindow
