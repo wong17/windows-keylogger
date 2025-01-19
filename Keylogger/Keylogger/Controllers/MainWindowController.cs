@@ -21,7 +21,7 @@ namespace Keylogger.Controllers
         public MainWindowController(MainWindow mainWindow)
         {
             _mainWindow = mainWindow;
-            
+
             SetupEvents();
 
             _mainWindow.ToolStripStatusLbl.Text = $"{Environment.MachineName} | {Win32OperatingSystem.GetOSVersion()}";
@@ -83,6 +83,7 @@ namespace Keylogger.Controllers
                 var time = DateTime.Now.ToString("dd-MM-yy hh:mm:ss tt");
                 _mainWindow.DgViewMouseButtons.Rows.Add(time, mouseButton, position, processName);
                 ScrollToLastRow(_mainWindow.DgViewMouseButtons);
+                _mainWindow.DgViewMouseButtons.ClearSelection();
             }
         }
 
@@ -155,8 +156,6 @@ namespace Keylogger.Controllers
             if (dataGridView.Rows.Count > 0)
             {
                 dataGridView.FirstDisplayedScrollingRowIndex = dataGridView.Rows.Count - 1;
-                dataGridView.ClearSelection();
-                dataGridView.Rows[^1].Selected = true;
             }
         }
     }
