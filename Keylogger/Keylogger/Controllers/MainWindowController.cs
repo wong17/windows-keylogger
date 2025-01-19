@@ -67,10 +67,13 @@ namespace Keylogger.Controllers
 
         private void LogKeyboardHook(string message, string key, KeyType keyType)
         {
-            if (ShouldDisplayKey(key, keyType, _selectedKeyFilter))
+            if (!ShouldDisplayKey(key, keyType, _selectedKeyFilter)) return;
+
+            if (_selectedKeyFilter == KeyFilter.PrintableCharacters)
             {
-                _mainWindow.RichTxtKeyboard.AppendText($"{key}");
+                key = ReplaceKey(key);
             }
+            _mainWindow.RichTxtKeyboard.AppendText($"{key}");
         }
 
         private void LogMouseButtons(string mouseButton, string position, string processName)

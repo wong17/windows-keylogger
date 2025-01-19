@@ -90,9 +90,9 @@
             // 
             label3.Anchor = AnchorStyles.Right;
             label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(3, 2);
+            label3.Location = new Point(3, 1);
             label3.Name = "label3";
-            label3.Size = new Size(106, 25);
+            label3.Size = new Size(106, 26);
             label3.TabIndex = 1;
             label3.Text = "Event to capture:";
             label3.TextAlign = ContentAlignment.MiddleCenter;

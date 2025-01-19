@@ -90,5 +90,15 @@ namespace Keylogger.Helpers
 
         private static bool IsModifier(string key, KeyType keyType) =>
             keyType == KeyType.NonPrintableKey && Modifiers.Contains(key);
+
+        public static string ReplaceKey(string key)
+        {
+            return key switch
+            {
+                "[Space]" => " ",
+                "[Enter]" => Environment.NewLine,
+                _ => key
+            };
+        }
     }
 }
