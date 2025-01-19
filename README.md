@@ -12,7 +12,7 @@
 
 #### Log de la posición del cursor
 
-- Monitorea la ubicación del cursor en tiempo real.
+- Da seguimiento a las coordenadas (x,y) del cursor en tiempo real.
 
 #### Identificación del proceso activo
 
