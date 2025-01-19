@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -55,12 +55,12 @@
             tableLayoutPanel2 = new TableLayoutPanel();
             flowLayoutPanel2 = new FlowLayoutPanel();
             DgViewMouseButtons = new DataGridView();
-            tableLayoutPanel1 = new TableLayoutPanel();
-            RichTxtMousePosition = new RichTextBox();
             DgMouseButtonColumnDate = new DataGridViewTextBoxColumn();
             DgViewMouseButtonColumnButton = new DataGridViewTextBoxColumn();
             DgViewMouseButtonColumnPosition = new DataGridViewTextBoxColumn();
             DgViewMouseButtonColumnProcessName = new DataGridViewTextBoxColumn();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            RichTxtMousePosition = new RichTextBox();
             statusStrip1.SuspendLayout();
             panel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
@@ -152,7 +152,7 @@
             CmbBoxKeyFilter.FormattingEnabled = true;
             CmbBoxKeyFilter.Location = new Point(344, 3);
             CmbBoxKeyFilter.Name = "CmbBoxKeyFilter";
-            CmbBoxKeyFilter.Size = new Size(175, 23);
+            CmbBoxKeyFilter.Size = new Size(211, 23);
             CmbBoxKeyFilter.TabIndex = 4;
             // 
             // statusStrip1
@@ -245,9 +245,9 @@
             flowLayoutPanel1.Controls.Add(CmbBoxKeyboardEvents);
             flowLayoutPanel1.Controls.Add(label6);
             flowLayoutPanel1.Controls.Add(CmbBoxKeyFilter);
-            flowLayoutPanel1.Location = new Point(757, 14);
+            flowLayoutPanel1.Location = new Point(721, 14);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(522, 30);
+            flowLayoutPanel1.Size = new Size(558, 30);
             flowLayoutPanel1.TabIndex = 14;
             // 
             // tableLayoutPanel3
@@ -299,24 +299,24 @@
             DgViewMouseButtons.AllowUserToResizeRows = false;
             DgViewMouseButtons.BackgroundColor = SystemColors.ControlLight;
             DgViewMouseButtons.BorderStyle = BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.Silver;
-            dataGridViewCellStyle1.Font = new Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            DgViewMouseButtons.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = Color.Silver;
+            dataGridViewCellStyle7.Font = new Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle7.ForeColor = Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            DgViewMouseButtons.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             DgViewMouseButtons.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DgViewMouseButtons.Columns.AddRange(new DataGridViewColumn[] { DgMouseButtonColumnDate, DgViewMouseButtonColumnButton, DgViewMouseButtonColumnPosition, DgViewMouseButtonColumnProcessName });
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = SystemColors.Window;
-            dataGridViewCellStyle6.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = Color.Silver;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            DgViewMouseButtons.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = SystemColors.Window;
+            dataGridViewCellStyle12.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle12.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = Color.Silver;
+            dataGridViewCellStyle12.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.False;
+            DgViewMouseButtons.DefaultCellStyle = dataGridViewCellStyle12;
             DgViewMouseButtons.Dock = DockStyle.Fill;
             DgViewMouseButtons.EnableHeadersVisualStyles = false;
             DgViewMouseButtons.Location = new Point(3, 61);
@@ -326,6 +326,47 @@
             DgViewMouseButtons.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DgViewMouseButtons.Size = new Size(629, 326);
             DgViewMouseButtons.TabIndex = 20;
+            // 
+            // DgMouseButtonColumnDate
+            // 
+            DgMouseButtonColumnDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle8.ForeColor = Color.White;
+            DgMouseButtonColumnDate.DefaultCellStyle = dataGridViewCellStyle8;
+            DgMouseButtonColumnDate.HeaderText = "Date";
+            DgMouseButtonColumnDate.Name = "DgMouseButtonColumnDate";
+            DgMouseButtonColumnDate.ReadOnly = true;
+            DgMouseButtonColumnDate.SortMode = DataGridViewColumnSortMode.NotSortable;
+            DgMouseButtonColumnDate.Width = 51;
+            // 
+            // DgViewMouseButtonColumnButton
+            // 
+            DgViewMouseButtonColumnButton.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle9.ForeColor = Color.White;
+            DgViewMouseButtonColumnButton.DefaultCellStyle = dataGridViewCellStyle9;
+            DgViewMouseButtonColumnButton.HeaderText = "Button";
+            DgViewMouseButtonColumnButton.Name = "DgViewMouseButtonColumnButton";
+            DgViewMouseButtonColumnButton.ReadOnly = true;
+            DgViewMouseButtonColumnButton.SortMode = DataGridViewColumnSortMode.NotSortable;
+            // 
+            // DgViewMouseButtonColumnPosition
+            // 
+            DgViewMouseButtonColumnPosition.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle10.ForeColor = Color.White;
+            DgViewMouseButtonColumnPosition.DefaultCellStyle = dataGridViewCellStyle10;
+            DgViewMouseButtonColumnPosition.HeaderText = "Position";
+            DgViewMouseButtonColumnPosition.Name = "DgViewMouseButtonColumnPosition";
+            DgViewMouseButtonColumnPosition.ReadOnly = true;
+            DgViewMouseButtonColumnPosition.SortMode = DataGridViewColumnSortMode.NotSortable;
+            // 
+            // DgViewMouseButtonColumnProcessName
+            // 
+            DgViewMouseButtonColumnProcessName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle11.ForeColor = Color.White;
+            DgViewMouseButtonColumnProcessName.DefaultCellStyle = dataGridViewCellStyle11;
+            DgViewMouseButtonColumnProcessName.HeaderText = "Process name";
+            DgViewMouseButtonColumnProcessName.Name = "DgViewMouseButtonColumnProcessName";
+            DgViewMouseButtonColumnProcessName.ReadOnly = true;
+            DgViewMouseButtonColumnProcessName.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
             // tableLayoutPanel1
             // 
@@ -356,47 +397,6 @@
             RichTxtMousePosition.Size = new Size(624, 326);
             RichTxtMousePosition.TabIndex = 21;
             RichTxtMousePosition.Text = "";
-            // 
-            // DgMouseButtonColumnDate
-            // 
-            DgMouseButtonColumnDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            DgMouseButtonColumnDate.DefaultCellStyle = dataGridViewCellStyle2;
-            DgMouseButtonColumnDate.HeaderText = "Date";
-            DgMouseButtonColumnDate.Name = "DgMouseButtonColumnDate";
-            DgMouseButtonColumnDate.ReadOnly = true;
-            DgMouseButtonColumnDate.SortMode = DataGridViewColumnSortMode.NotSortable;
-            DgMouseButtonColumnDate.Width = 51;
-            // 
-            // DgViewMouseButtonColumnButton
-            // 
-            DgViewMouseButtonColumnButton.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.ForeColor = Color.White;
-            DgViewMouseButtonColumnButton.DefaultCellStyle = dataGridViewCellStyle3;
-            DgViewMouseButtonColumnButton.HeaderText = "Button";
-            DgViewMouseButtonColumnButton.Name = "DgViewMouseButtonColumnButton";
-            DgViewMouseButtonColumnButton.ReadOnly = true;
-            DgViewMouseButtonColumnButton.SortMode = DataGridViewColumnSortMode.NotSortable;
-            // 
-            // DgViewMouseButtonColumnPosition
-            // 
-            DgViewMouseButtonColumnPosition.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle4.ForeColor = Color.White;
-            DgViewMouseButtonColumnPosition.DefaultCellStyle = dataGridViewCellStyle4;
-            DgViewMouseButtonColumnPosition.HeaderText = "Position";
-            DgViewMouseButtonColumnPosition.Name = "DgViewMouseButtonColumnPosition";
-            DgViewMouseButtonColumnPosition.ReadOnly = true;
-            DgViewMouseButtonColumnPosition.SortMode = DataGridViewColumnSortMode.NotSortable;
-            // 
-            // DgViewMouseButtonColumnProcessName
-            // 
-            DgViewMouseButtonColumnProcessName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            DgViewMouseButtonColumnProcessName.DefaultCellStyle = dataGridViewCellStyle5;
-            DgViewMouseButtonColumnProcessName.HeaderText = "Process name";
-            DgViewMouseButtonColumnProcessName.Name = "DgViewMouseButtonColumnProcessName";
-            DgViewMouseButtonColumnProcessName.ReadOnly = true;
-            DgViewMouseButtonColumnProcessName.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
             // MainWindow
             // 

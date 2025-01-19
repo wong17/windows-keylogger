@@ -13,8 +13,8 @@ namespace Keylogger.Helpers
             { "All Keys", KeyFilter.AllKeys },
             { "Printable characters", KeyFilter.PrintableCharacters },
             { "Non-printable keys", KeyFilter.NonPrintableKeys },
-            { "Function keys", KeyFilter.FunctionKeys },
-            { "Modifier keys", KeyFilter.ModifierKeys }
+            { "Function keys (F1 - F12)", KeyFilter.FunctionKeys },
+            { "Modifier keys (Ctrl, Shift, Alt, Win)", KeyFilter.ModifierKeys }
         };
 
         private static readonly HashSet<string> SpecialPrintableKeys =
