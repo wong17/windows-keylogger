@@ -390,7 +390,7 @@
             MaximizeBox = false;
             Name = "MainWindow";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Windows Keylogger - D. Wong";
+            Text = "Windows Keylogger - Made by D. Wong";
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
             panel1.ResumeLayout(false);
