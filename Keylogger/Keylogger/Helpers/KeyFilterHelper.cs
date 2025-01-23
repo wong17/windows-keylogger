@@ -8,7 +8,7 @@ namespace Keylogger.Helpers
     {
         private static readonly TextInfo TextInfo = new CultureInfo("en-US", false).TextInfo;
 
-        public static Dictionary<string, KeyFilter> KeyFilters = new()
+        public static readonly Dictionary<string, KeyFilter> KeyFilters = new()
         {
             { "All Keys", KeyFilter.AllKeys },
             { "Printable characters", KeyFilter.PrintableCharacters },

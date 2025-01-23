@@ -24,7 +24,7 @@ namespace Keylogger.Controllers
 
             SetupEvents();
 
-            _mainWindow.ToolStripStatusLbl.Text = $"{Environment.MachineName} | {Win32OperatingSystem.GetOSVersion()}";
+            _mainWindow.ToolStripStatusLbl.Text = $@"{Environment.MachineName} | {Win32OperatingSystem.GetOsVersion()}";
 
             SetupKeyboardHookControls();
             SetupMouseHookControls();

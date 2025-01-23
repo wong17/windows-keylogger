@@ -26,22 +26,20 @@ namespace Keylogger.Services
             if (_activeHooks.ContainsKey(hookName)) return;
 
             var hook = SetHook(hookType, proc);
-            if (hook != nint.Zero)
-            {
-                _activeHooks[hookName] = hook;
-                Debug.WriteLine($"{hookName} installed");
-            }
+            if (hook == nint.Zero) return;
+            
+            _activeHooks[hookName] = hook;
+            Debug.WriteLine($"{hookName} installed");
         }
 
         private void UninstallHook(Type hookName)
         {
-            if (!_activeHooks.TryGetValue(hookName, out nint value)) return;
+            if (!_activeHooks.TryGetValue(hookName, out var value)) return;
 
-            if (Unhook(value, hookName))
-            {
-                _activeHooks.Remove(hookName);
-                Debug.WriteLine($"{hookName} uninstalled");
-            }
+            if (!Unhook(value, hookName)) return;
+            
+            _activeHooks.Remove(hookName);
+            Debug.WriteLine($"{hookName} uninstalled");
         }
 
         private static nint SetHook(HookType hookType, Hookproc proc)

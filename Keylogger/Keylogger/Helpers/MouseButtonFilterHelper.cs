@@ -4,7 +4,7 @@ namespace Keylogger.Helpers
 {
     internal static class MouseButtonFilterHelper
     {
-        public static Dictionary<string, MouseButtonFilter> MouseButtonFilters = new()
+        public static readonly Dictionary<string, MouseButtonFilter> MouseButtonFilters = new()
         {
             { "All", MouseButtonFilter.All },
             { "Left Button", MouseButtonFilter.LeftButton },
