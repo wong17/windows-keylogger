@@ -1,4 +1,6 @@
-# Windows keylogger
+# Windows Keylogger
+
+![image](https://github.com/user-attachments/assets/b755e502-270e-492c-97bb-64d23ad51e31)
 
 ## Funciones
 
@@ -17,3 +19,9 @@
 #### Identificación del proceso activo
 
 - Obtiene el nombre del proceso (programa) en donde se encuentra el cursor, ya sea durante clics o movimientos.
+
+## Advertencia
+
+Este proyecto fue desarrollado con fines meramente educativos más específicamente para explorar el uso de algunas funciones de la API de Windows y entender el funcionamiento interno de aplicaciones similares. 
+
+No me hago responsable del uso indebido del código proporcionado.
